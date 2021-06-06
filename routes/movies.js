@@ -6,6 +6,7 @@ var express     = require('express'),
     Liked       = require('../models/like'),
     User        = require('../models/user'),
     multer      = require('multer'),
+    middleware  = require('../middleware'),
     path        = require('path');
     storage =  multer.diskStorage({
         destination: function(req, file, callback){
@@ -51,7 +52,7 @@ router.get('/movie', function(req, res){
     });
 });
 
-router.post('/', isLoggedIn, upload.single('image'), function(req, res){
+router.post('/',isLoggedIn, upload.single('image'), function(req, res){
     req.body.movie.image = '/picture/movies/' + req.file.filename;
     req.body.movie.author = {
             id: req.user._id,
@@ -81,7 +82,7 @@ router.post('/', isLoggedIn, upload.single('image'), function(req, res){
     });
 });
 
-router.get('/new', isLoggedIn, function(req,res){
+router.get('/new', middleware.isLoggedIn, function(req,res){
     res.render('movies/new.ejs');
 });
 
@@ -117,13 +118,31 @@ router.get('/search-movie/:name', function(req,res){
     });
 });
 
-router.get('/genre/:genre', function(req, res){
+router.get('/genre-nowshowing/:genre', function(req, res){
 
     Movie.find({type: 'comingsoon'}, function(err, foundMovie_com){
         if(err){
             console.log(err);
         } else {
             Movie.find({type: 'nowshowing', genre: new RegExp(req.params.genre, 'i')}, function(err, foundMovie){
+                if(err){
+                    console.log(err);
+                } else {
+                        res.render('movies/index.ejs',{movie: foundMovie, moviecom: foundMovie_com, sort: req.params.genre});
+                }
+                   
+            });
+        }
+    });
+});
+
+router.get('/genre-comingsoon/:genre', function(req, res){
+
+    Movie.find({type: 'nowshowing'}, function(err, foundMovie){
+        if(err){
+            console.log(err);
+        } else {
+            Movie.find({type: 'comingsoon', genre: new RegExp(req.params.genre, 'i')}, function(err, foundMovie_com){
                 if(err){
                     console.log(err);
                 } else {
@@ -187,7 +206,7 @@ router.post('/:id/unlike', isLoggedIn, function(req, res){
     });
 });
 
-router.get('/:id/edit', function(req,res){
+router.get('/:id/edit',middleware.checkMovieOwner, function(req,res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
             console.log(err);
