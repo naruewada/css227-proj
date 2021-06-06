@@ -3,6 +3,7 @@ const   express         = require('express'),
         bodyParser      = require('body-parser'),
         mongoose        = require('mongoose'),
         passport        = require('passport'),
+        methodOverride  = require('method-override'),
         LocalStrategy   = require('passport-local'),
         Movie           = require('./models/movie'),
         Comment         = require('./models/comment'),
@@ -21,7 +22,9 @@ app.use(express.static('public'));
 mongoose.connect('mongodb://localhost/Project1');
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine','ejs');
+app.use(methodOverride('_method'));
 app.use(express.static(__dirname + 'public'));
+// app.use(express.static( './public'));
 // seedDB();
 
 

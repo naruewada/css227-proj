@@ -61,7 +61,7 @@ router.post('/', isLoggedIn, upload.single('image'), function(req, res){
     // var image       = req.body.image;
     // var date        = req.body.date;
     // var rating      = req.body.rating;
-    // var director    = req.body.director;
+    // var actor       = req.body.director;
     // var rate        = req.body.rate;
     // var time        = req.body.time;
     // var genre       = req.body.genre;
@@ -187,6 +187,28 @@ router.post('/:id/unlike', isLoggedIn, function(req, res){
     });
 });
 
+router.get('/:id/edit', function(req,res){
+    Movie.findById(req.params.id, function(err, foundMovie){
+        if(err){
+            console.log(err);
+        } else{
+            res.render('movies/edit.ejs', {movie: foundMovie})
+        }
+    });
+});
+
+router.put('/:id', upload.single('image'), function(req, res){
+    if(req.file){
+        req.body.movie.image = '/picture/movies/' + req.file.filename;
+    }
+    Movie.findByIdAndUpdate(req.params.id, req.body.movie, function(err, updatedMovie){
+        if(err){
+            res.redirect('/movie/');
+        } else{
+            res.redirect('/movie/' +req.params.id);
+        }
+    });
+});
 // router.get('/sort/coming-soon', function(req, res){
 //     Movie.find({}, function(err, allMovies){
 //         if(err){
