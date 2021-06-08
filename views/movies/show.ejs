@@ -48,10 +48,21 @@
   <p class="comments">Review! </p>
   <% movie.comments.forEach(function(comment){ %>
     <p class="dec-2">
-      <i class="fa fa-user"></i><strong>
+      <i class="fa fa-user"></i>
+      <strong>
         <%= comment.author.username %>
-      </strong> : <%= comment.text %>
-        <hr>
+      </strong> 
+      : <%= comment.text %>
+      <% if(currentUser && movie.author.id.equals(currentUser._id)){ %>
+        <div class="d-flex justify-content-between align-items-center">
+          <a class="btn btn-warning" href="/movie/<%= movie._id %>/comments/<%= comment._id %>/edit">edit</a>
+          <form action="/movie/<%= movie._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+        <% } %>
+      <hr>
+      
     </p>
     <% }); %>
 

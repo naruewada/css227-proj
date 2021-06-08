@@ -2,6 +2,7 @@ const movie = require('../models/movie');
 
 var express     = require('express'),
     router      = express.Router(),
+    Comment     = require('../models/comment'),
     Movie       = require('../models/movie'),
     Liked       = require('../models/like'),
     User        = require('../models/user'),
@@ -52,7 +53,7 @@ router.get('/movie', function(req, res){
     });
 });
 
-router.post('/',isLoggedIn, upload.single('image'), function(req, res){
+router.post('/',middleware.isLoggedIn, upload.single('image'), function(req, res){
     req.body.movie.image = '/picture/movies/' + req.file.filename;
     req.body.movie.author = {
             id: req.user._id,
@@ -87,14 +88,38 @@ router.get('/new', middleware.isLoggedIn, function(req,res){
 });
 
 router.get("/:id", function(req, res){
+
     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
         if(err){
             console.log(err);
         } else {
+
             res.render("movies/show.ejs", {movie: foundMovie});
         }
     });
 });
+
+
+router.get("/:id/comments/:comment_id/edit", middleware.checkCommentOwner, function(req, res){
+    Comment.findById(req.params.comment_id, function(err, foundComment){
+        if(err) {
+            res.redirect('back');
+        } else {
+            Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
+                if(err){
+                    console.log(err);
+                } else {
+        
+                    res.render("comments/edit.ejs", { comment: foundComment, movie: foundMovie});
+                }
+            });
+        }
+    })
+    
+});
+
+
+
 
 router.post('/search-movie',function(req,res){
     console.log("Trying to search movie... " + req.body.search);
@@ -160,7 +185,7 @@ router.get('/genre-comingsoon/:genre', function(req, res){
 
 
 
-router.post('/:id/like', isLoggedIn, function(req, res){
+router.post('/:id/like',middleware.isLoggedIn, function(req, res){
     User.findById(req.user._id, function(err, foundUsers){
         if(err){
             console.log(err);
@@ -189,7 +214,7 @@ router.post('/:id/like', isLoggedIn, function(req, res){
     });
 });
 
-router.post('/:id/unlike', isLoggedIn, function(req, res){
+router.post('/:id/unlike',middleware.isLoggedIn, function(req, res){
     User.update( {_id: req.user._id}, { $pull: { likes: req.params.id } } ).exec(function(err){
         if(err){
             console.log(err);
@@ -215,6 +240,7 @@ router.get('/:id/edit',middleware.checkMovieOwner, function(req,res){
         }
     });
 });
+
 
 router.put('/:id', upload.single('image'), function(req, res){
     if(req.file){
@@ -249,12 +275,16 @@ router.put('/:id', upload.single('image'), function(req, res){
 //     }).sort({'genre': 1});
 // });
 
+router.delete('/:id', middleware.checkMovieOwner, function(req, res){
+    Movie.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect('/movie/');
+        } else{
+            res.redirect('/movie/');
+        }
+    });
+});
 
-function isLoggedIn(req, res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-    res.redirect('/login');
-}
+
 
 module.exports = router;

@@ -1,0 +1,69 @@
+<%- include('../partials/headerlog1.ejs') %>
+<link rel="stylesheet" href="../stylesheets/moviedetail.css">
+<div class="total-detail">
+  <div class="sub-detail">
+    <div class="messege-detail">
+      <h1 class="head-messege"><%= movie.name %></h1>
+      <p class="messege-dec"><i class=" far fa-clock"></i> <%= movie.time %></p>
+      <p class="messege-dec"><i class="fa fa-tags" ></i> <%= movie.genre %></p>
+      <p class="messege-dec"><i class="far fa-calendar"></i> <%= movie.date %></p>
+      <p class="messege-dec"><i class="fa fa-user-friends" ></i> <%= movie.actor %></p>
+
+      <% if(!currentUser) { %>
+        <form action="/login" method="POST">
+            <button type="submit" class="favorite">favorite <i class="far fa-heart" id="unlike"></i></button>
+        </form>
+    <% } else { %>
+    <div class="container-fluid mt-3" >
+        <!-- function for check that user like or not -->
+        <% var match = 0; var like_id = ''; %>
+        <% currentUser.likes.forEach(function(liked){ if ( liked.movies.id == movie.id ) { match = 1; like_id = liked._id; } }); %>
+        <% if( match == 1 ) { %>
+            <form action="/movie/<%= like_id %>/unlike" method="POST">
+                <button type="submit" class="favorite liked" >favorite <i class="fa fa-heart" id="like" ></i></button>
+            </form>
+        <% } else { %>
+            <form action="/movie/<%= movie._id %>/like" method="POST">
+                <button type="submit" class="favorite">favorite <i class="far fa-heart" id="unlike" ></i></button>
+            </form>
+        <% } %>
+    </div>
+    <% } %>
+    </div>
+  </div>
+  <div class="trailer-vdo" ><iframe  src="<%= movie.trailer %>" allowfullscreen ></iframe></div>
+</div>
+
+
+<div class="poster-movie">
+<p><img src="<%= movie.image %>" style="width: 13rem;"></p>
+<div>
+  <h3 class="h3-header-movie"><%= movie.name %></h3>
+  <p class="movie-rating"><i class="fa fa-star"></i> <%= movie.rating %> / 10</p>
+
+</div>
+</div>
+
+<hr>
+<p class="comments">Review! </p>
+<% movie.comments.forEach(function(comment){ %>
+  <p class="dec-2">
+    <i class="fa fa-user"></i><strong>
+      <%= comment.author.username %>
+    </strong> : <%= comment.text %>
+      <hr>
+  </p>
+  <% }); %>
+
+ 
+
+    <div class='container'>
+      <form action='/movie/<%= movie._id %>/comments/<%= comment._id %>?_method=PUT' method='POST'>
+      <div class="mb-3">
+        <input type="text" class="form-control" name='comment[text]' placeholder='<%= comment.text %>' value="<%= comment.text %>">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+
+<%- include('../partials/footer.ejs') %>
