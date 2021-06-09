@@ -6,10 +6,16 @@ var UserSchema = new mongoose.Schema({
     password: String,
     firstname: String,
     lastname: String,
+    state:{ 
+        type: String, 
+        default: 'member'
+    },
+
     picture: {
         type: String,
         default: '/picture/users/default.JPG'
     },
+
     likes : [
         {
             type: mongoose.Schema.Types.ObjectId,

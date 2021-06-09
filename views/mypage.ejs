@@ -11,9 +11,9 @@
         <div class="alert alert-success mypage-background" role="alert">
             <p class="movie-head">MY PROFILE</p>
             <img src="<%= currentUser.picture %>" alt="" style="width: 50px; height: 50px;">
-            <p class="user-detail"><span class="mypage-edit">Username : </span><br>
-                <span class="mypage-edit">First name : </span><br>
-                <span class="mypage-edit">Last name : </span><br><br>
+            <p class="user-detail"><span class="mypage-edit">Username : <%= currentUser.username %></span><br>
+                <span class="mypage-edit">First name : <%= currentUser.firstname %></span><br>
+                <span class="mypage-edit">Last name : <%= currentUser.lastname %></span><br><br>
                 <a href="#"><button class="mypage-edit-button"><i class="fa fa-edit"></i>Edit</button></a>
             </p>
             <form action="/user/<%= currentUser._id %>" method="POST" enctype="multipart/form-data">

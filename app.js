@@ -55,8 +55,8 @@ app.get('/cinemas', function(req, res){
 });
 
 
-app.get('/showtime', function(req, res){
-    res.render('showtime.ejs');
+app.get('/seat', function(req, res){
+    res.render('seat.ejs');
 });
 
 app.use('/', indexRoutes);

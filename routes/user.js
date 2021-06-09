@@ -22,6 +22,62 @@ var express     = require('express'),
     User    = require('../models/user');
 
 
+
+
+    router.get('/admin', middleware.checkAdmin, function (req, res) {
+        User.find({state: 'member'}, function (err, allUser) {
+            if (err) {
+                console.log(err);
+            } else {
+                User.find({ state: 'admin' }, function (err, allAdmin) {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        res.render('admin.ejs', { User: allUser, Admin: allAdmin });
+                    }
+                });
+            }
+        });
+    });
+    
+    router.post('/admin/grant/:id', middleware.checkAdmin, function (req, res) {
+        User.findByIdAndUpdate(req.params.id,{state: 'admin'},function (err, result) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Updated User : ", result);
+                res.redirect('back');
+            }
+        });
+    });
+    
+    router.post('/admin/forfeit/:id', middleware.checkAdmin, function (req, res) {
+        User.findByIdAndUpdate(req.params.id,{state: 'member'},function (err, result) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Updated User : ", result);
+                res.redirect('back');
+            }
+        });
+    });
+    
+    
+    router.post('/admin/delete/:id', middleware.checkAdmin, function (req, res) {
+        User.findByIdAndDelete(req.params.id, function(err, result) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log("Deleted User : ", result);
+                res.redirect('back');
+            }
+        });
+    });
+
+
+
+
+
 router.get('/:id',middleware.isLoggedIn, function (req, res) {
     User.findById(req.params.id).exec(function (err, foundUsers) {
         if (err) {
@@ -52,6 +108,8 @@ router.post('/:id', middleware.isLoggedIn, upload.single('image'), function (req
             }
         });
 });
+
+
 
 
 

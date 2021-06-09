@@ -84,7 +84,7 @@ router.post('/',middleware.isLoggedIn, upload.single('image'), function(req, res
     });
 });
 
-router.get('/new', middleware.isLoggedIn, function(req,res){
+router.get('/new', middleware.checkAdmin, function(req,res){
     res.render('movies/new.ejs');
 });
 
@@ -232,7 +232,7 @@ router.post('/:id/unlike',middleware.isLoggedIn, function(req, res){
     });
 });
 
-router.get('/:id/edit',middleware.checkMovieOwner, function(req,res){
+router.get('/:id/edit',middleware.checkAdmin, function(req,res){
     Movie.findById(req.params.id, function(err, foundMovie){
         if(err){
             console.log(err);
@@ -276,13 +276,13 @@ router.put('/:id', upload.single('image'), function(req, res){
 //     }).sort({'genre': 1});
 // });
 
-router.delete('/:id', middleware.checkMovieOwner, function(req, res){
+router.delete('/:id', middleware.checkAdmin, function(req, res){
     Movie.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.redirect('/movie/');
         } else{
             req.flash('success', "You delete your movie.");
-            res.redirect('/movie/');
+            res.redirect('/');
         }
     });
 });

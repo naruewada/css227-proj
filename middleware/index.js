@@ -10,7 +10,7 @@ middlewareObj.checkMovieOwner = function(req, res, next){
                 req.flash("error", "Movie not found!");
                 res.redirect('back');
             } else{
-                if(foundMovie.author.id.equals(req.user._id)){
+                if(foundMovie.author.id.equals(req.user._id)  || req.user.isAdmin){
                     next();
                 }else{
                     req.flash("error", "You do not have permission to do this action.");
@@ -31,7 +31,7 @@ middlewareObj.checkCommentOwner = function(req, res, next){
                 req.flash("error", "Comment not found!");
                 res.redirect('back');
             } else{
-                if(foundComment.author.id.equals(req.user._id)){
+                if(foundComment.author.id.equals(req.user._id) || req.user.state === 'admin' || req.user.state === 'cheif'){
                     next();
                 }else{
                     req.flash("error", "You do not have permission to do this action.");
@@ -45,6 +45,29 @@ middlewareObj.checkCommentOwner = function(req, res, next){
         res.redirect('back');
     }
 }
+
+middlewareObj.checkAdmin = function(req, res, next){
+    if(req.isAuthenticated()){
+        User.findById(req.user._id, function(err, currentUser){
+            if(err){
+                req.flash("error", "Comment not found!");
+                res.redirect('back');
+            } else{
+                if( currentUser.state === 'admin' || currentUser.state === 'cheif'){
+                    next();
+                }else{
+                    req.flash("error", "You do not have permission to do this action.");
+                    res.redirect('back');
+                }
+            } 
+        });
+
+    } else{
+        req.flash("error", "You need to sign in first!");
+        res.redirect('back');
+    }
+}
+
 
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){

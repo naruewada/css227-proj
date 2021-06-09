@@ -61,6 +61,9 @@ router.get('/register', function(req, res){
 
 router.post('/register', function(req, res){
     var newUser = new User({username: req.body.username, firstname: req.body.firstname,  lastname: req.body.lastname});
+    if(req.body.isAdmin === 'top secret') {
+        newUser.isAdmin = true;
+    }
     User.register(newUser, req.body.password, function(err, user){
         if(err) {
             req.flash("error", err.message);
@@ -72,6 +75,9 @@ router.post('/register', function(req, res){
         });
     });
 });
+
+
+
 
 router.get('/login', function(req, res){
     res.render('login.ejs');
