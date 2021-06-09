@@ -63,10 +63,11 @@ router.post('/register', function(req, res){
     var newUser = new User({username: req.body.username, firstname: req.body.firstname,  lastname: req.body.lastname});
     User.register(newUser, req.body.password, function(err, user){
         if(err) {
-            console.log(err);
+            req.flash("error", err.message);
             return res.render('register');
         }
         passport.authenticate('local')(req, res, function(){
+            req.flash("success", "Welcome to Nmovie" + user.firstname);
             res.redirect('/');
         });
     });
@@ -80,6 +81,10 @@ router.post('/login', passport.authenticate('local',
     {
         successRedirect: '/',
         failureRedirect: '/login',
+        successFlash: true,
+        failureFlash: true,
+        successFlash: 'successfully log in',
+        failureFlash: 'Invalid username or password'
     }), function(res, res){ 
            
 });
@@ -87,6 +92,7 @@ router.post('/login', passport.authenticate('local',
 
 router.get('/logout', function(req, res){
     req.logout();
+    req.flash("success", "Logged you out successly");
     res.redirect('/');
 });
 

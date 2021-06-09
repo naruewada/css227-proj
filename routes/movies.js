@@ -78,6 +78,7 @@ router.post('/',middleware.isLoggedIn, upload.single('image'), function(req, res
         if(err){
             console.log(err);
         } else{
+            req.flash('success', "Your Movie is created.");
             res.redirect('/movie');
         }
     });
@@ -280,6 +281,7 @@ router.delete('/:id', middleware.checkMovieOwner, function(req, res){
         if(err){
             res.redirect('/movie/');
         } else{
+            req.flash('success', "You delete your movie.");
             res.redirect('/movie/');
         }
     });

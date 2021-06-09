@@ -29,6 +29,7 @@ router.post('/', middleware.isLoggedIn, function(req, res){
                     comment.save();
                     foundMovie.comments.push(comment);
                     foundMovie.save();
+                    req.flash('success', "Your comment is added.");
                     res.redirect('/movie/'+ foundMovie._id);
                 }
             });
@@ -61,6 +62,7 @@ router.delete('/:comment_id', middleware.checkCommentOwner, function(req, res){
         if(err){
             res.redirect('back');
         } else{
+            req.flash('success', "Your Movie is created.");
             res.redirect('/movie/'  + req.params.id);
         }
     });

@@ -1,6 +1,7 @@
-var express = require('express'),
-    router = express.Router(),
+var express     = require('express'),
+    router      = express.Router(),
     multer      = require('multer'),
+    middleware  = require('../middleware'),
     path        = require('path');
     storage =  multer.diskStorage({
         destination: function(req, file, callback){
@@ -21,7 +22,7 @@ var express = require('express'),
     User    = require('../models/user');
 
 
-router.get('/:id', isLoggedIn, function (req, res) {
+router.get('/:id',middleware.isLoggedIn, function (req, res) {
     User.findById(req.params.id).exec(function (err, foundUsers) {
         if (err) {
             console.log(err);
@@ -38,7 +39,7 @@ router.get('/:id', isLoggedIn, function (req, res) {
 });
 
 
-router.post('/:id', isLoggedIn, upload.single('image'), function (req, res){
+router.post('/:id', middleware.isLoggedIn, upload.single('image'), function (req, res){
     User.findByIdAndUpdate(req.params.id,
         {
             picture: '/picture/users/' + req.file.filename
@@ -53,12 +54,7 @@ router.post('/:id', isLoggedIn, upload.single('image'), function (req, res){
 });
 
 
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    res.redirect('/login');
-};
+
 
 
 
