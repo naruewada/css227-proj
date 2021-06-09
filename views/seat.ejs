@@ -1,36 +1,157 @@
 <%- include('partials/header.ejs') %>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/showtime.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="stylesheets/showtime.css">
 
-<table style="color: aliceblue;">
-  <tr>
-    <td>A1</td>
-    <td>A2</td>
-    <td>A3</td>
-    <td>A4</td>
-  </tr>
+  <div class="album py-5">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2">
 
-  <tr>
-    <td>B1</td>
-    <td>B2</td>
-    <td>B3</td>
-    <td>B4</td>
-  </tr>
+        <div class="col" style="background-color: rgb(199, 198, 195);">
 
-  <tr>
-    <td>C1</td>
-    <td>C2</td>
-    <td>C3</td>
-    <td>C4</td>
-  </tr>
 
-  <tr>
-    <td>D1</td>
-    <td>D2</td>
-    <td>D3</td>
-    <td>D4</td>
-  </tr>
-</table>
+          <p style="background-color: rgb(0, 0, 0); color:white; text-align: center;">SCREEN</p>
 
-<%- include('partials/footer.ejs') %>
+          <div class="row mb-3">
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A1" src="/picture/cinema/seat.png" style="width: 4.7rem; height: 4.7rem">
+                <input type='hidden' name="A1" id="iA1" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A2" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="A2" id="iA2" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A3" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="A3" id="iA3" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A4" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="A4" id="iA4" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="B1" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="B1" id="iB1" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A1" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="B2" id="iB2" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A1" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="B3" id="iB3" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A1" src="/picture/cinema/seat.png" style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="B4" id="iB1" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="C1" src="/picture/cinema/seat.png" style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="C1" id="iC1" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 5px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A1" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="C2" id="iC2" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A2" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="C3" id="iC3" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A3" src="/picture/cinema/seat.png" style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="C4" id="iC4" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A4" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="D1" id="iD1" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="B1" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="D2" id="iD2" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A1" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="D3" id="iD3" value="n">
+              </button>
+            </div>
+
+            <div class="col-3" style="margin-top: 7px;">
+              <button type="button" class="seat-button" style="background:transparent; border:0">
+                <img class="seat" id="A1" src="/picture/cinema/seat.png" style="width: 4.8rem; height: 4.8rem">
+                <input type='hidden' name="D4" id="iD4" value="n">
+              </button>
+            </div>
+
+            
+          </div>
+
+        </div>
+
+        <div class="col" style="background-color: green; display:flex">
+          <div>
+            <img src="picture/movies/image-1623258352964.jpg" style="width: 11rem;">
+          </div>
+            <div>
+              <h1>Moviename</h1>
+              <p>Time:</p>
+              <p>Cinema:</p>
+              <p>Theater:</p>
+              <p>Date:</p>
+            </div>
+          
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+
+    
+
+
+  <%- include('partials/footer.ejs') %>

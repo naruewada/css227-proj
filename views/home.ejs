@@ -43,29 +43,6 @@
 
 </div>
 
- <div class="cinema-show">
-    <form method="POST" name="mycenima" class="form-cinema">
-      <select name="cinema" class="select">
-        <option selected class="option">select-cinema</option>
-        <option value="cinema_1" class="option">Cinema-1</option>
-        <option value="cinema_2" class="option">Cinema-2</option>
-        <option value="cinema_3" class="option">Cinema-3</option>
-        <option value="cinema_4" class="option">Cinema-4</option>
-        <option value="cinema_5" class="option">Cinema-5</option>
-      </select>
-      <select name="movie" class="select">
-        <option selected class="option">select-movie</option>
-        <option value="movie_1" class="option">movie-1</option>
-        <option value="movie_2" class="option">movie-2</option>
-        <option value="movie_3" class="option">movie-3</option>
-        <option value="movie_4" class="option">movie-4</option>
-        <option value="movie_5" class="option">movie-5</option>
-        <input type="submit" value="SHOWTIME" class="submit">
-      </select>
-      
-    </form>
-  </div>
-
   <div class="part-movie">
     <p class="movie-head">Movie</p>
     <p class="space-decoration">
@@ -74,6 +51,12 @@
       <hr class="line line-edit">
     </p>
   </div>
+  <% if (!currentUser) { %>
+  <% } else if( currentUser && currentUser.state === 'admin' || currentUser && currentUser.state === 'cheif'){ %>
+  
+  <div style="background-color: rgb(11, 11, 114); color:aliceblue"><a href="/movie/new"><i class="fa fa-plus"></i>Add new movie</a></div>
+  <% } %>
+  
   <div id="now-showing">
     <div class="album py-5">
       <div class="container">
@@ -133,6 +116,7 @@
       </div>
     </div>
   </div>
+ 
 
   <div id="coming-soon" class="hidden">
     <div class="album py-5">
