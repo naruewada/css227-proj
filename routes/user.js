@@ -20,6 +20,7 @@ var express     = require('express'),
     upload = multer({storage: storage, fileFilter: imageFilter}), 
 
     User    = require('../models/user');
+    Booking = require('../models/booking');
 
 
 
@@ -87,7 +88,13 @@ router.get('/:id',middleware.isLoggedIn, function (req, res) {
                 if (err) {
                     console.log(err);
                 } else {
-                    res.render('mypage.ejs', { User: foundUsers, movie: likedMovies });
+                    Booking.find({'user.id': req.params.id}).exec(function(err, foundBooking){
+                        if (err) {
+                            console.log(err);
+                        } else {
+                            res.render('mypage.ejs', { User: foundUsers, movie: likedMovies, Booking: foundBooking });
+                        }
+                    });
                 }
             });
         }

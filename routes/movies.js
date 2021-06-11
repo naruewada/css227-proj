@@ -1,9 +1,8 @@
-const movie = require('../models/movie');
-
 var express     = require('express'),
     router      = express.Router(),
     Comment     = require('../models/comment'),
     Movie       = require('../models/movie'),
+    Cinema      = require('../models/cinema'),
     Liked       = require('../models/like'),
     User        = require('../models/user'),
     multer      = require('multer'),
@@ -88,17 +87,102 @@ router.get('/new', middleware.checkAdmin, function(req,res){
     res.render('movies/new.ejs');
 });
 
-router.get("/:id", function(req, res){
+// show detail
 
+router.get("/:id", function(req, res){
     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
         if(err){
             console.log(err);
         } else {
-
             res.render("movies/show.ejs", {movie: foundMovie});
         }
     });
 });
+
+// router.get("/:id", function(req, res){
+//     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             Cinema.find({}, function(err, allCinemas){
+//                 if(err){
+//                     console.log(err);
+//                 } else {
+//                     res.render('movies/showtime.ejs', { movie: foundMovie, Cinema: allCinemas });
+//                 }
+//             });
+//         }
+//     });
+// });
+
+// router.get("/:id/showtime", function(req, res){
+//     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             Cinema.find({}, function(err, allCinemas){
+//                 if(err){
+//                     console.log(err);
+//                 } else {
+//                     res.render('movies/showtime.ejs', { movie: foundMovie, Cinema: allCinemas });
+//                 }
+//             });
+//         }
+//     });
+// });
+
+// router.get("/:id/showtime", function(req, res){
+//     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             Cinema.find({}, function(err, allCinema){
+//                 if(err){
+//                     console.log(err);
+//                 } else {
+//                     Cinemas.findById(req.params.id, function(err, foundCinemas){
+//                         if(err){
+//                             console.log(err);
+//                         } else {
+//                             Movie.findById(req.params.id, function(err, foundMovies){
+//                                 if(err){
+//                                     console.log(err);
+//                                 } else {
+//                                     res.render('movies/showtime.ejs', {movie: foundMovie, Cinema: allCinema, Cinemas: foundCinemas, Movies: foundMovies});
+//                                 }
+//                             });
+//                         }
+//                     });
+//                 }
+//             });
+//         }
+//     });
+// });
+
+
+router.get("/:id/showtime", function(req, res){
+    Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
+        if(err){
+            console.log(err);
+        } else {
+            Cinema.find({}, function(err, allCinema){
+                if(err){
+                    console.log(err);
+                } else {
+                    Cinema.findById(req.params.id, function(err, foundCinemas){
+                        if(err){
+                            console.log(err);
+                        } else {
+                            res.render('movies/showtime.ejs', { movie: foundMovie, Cinema: allCinema, Cinemas: foundCinemas });
+                        }
+                    });
+                }
+            });
+        }
+    });
+});
+
+
 
 
 router.get("/:id/comments/:comment_id/edit", middleware.checkCommentOwner, function(req, res){

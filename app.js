@@ -14,6 +14,9 @@ const   express         = require('express'),
        
 
 var movieRoutes         = require('./routes/movies'),
+    cinemaRoutes        = require('./routes/cinema'),
+    sessionRoutes       = require('./routes/session'),
+    bookingRoutes       = require('./routes/booking'),
     commentRoutes       = require('./routes/comments'),
     indexRoutes         = require('./routes/index'),
     userRoutes          = require('./routes/user');
@@ -50,16 +53,10 @@ app.use(function(req,res,next){
 
 
 
-app.get('/cinemas', function(req, res){
-    res.render('cinema.ejs');
-});
-
-
-app.get('/seat', function(req, res){
-    res.render('seat.ejs');
-});
-
 app.use('/', indexRoutes);
+app.use('/cinemas', cinemaRoutes);
+app.use('/booking', bookingRoutes);
+app.use('/session', sessionRoutes);
 app.use('/movie', movieRoutes);
 app.use('/movie/:id/comments', commentRoutes);
 app.use('/user', userRoutes);

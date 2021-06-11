@@ -1,0 +1,335 @@
+<%- include('../partials/header.ejs') %>
+
+<!-- Banner -->
+<div class="container-fluid px-3" style="height: 75px; background-color: rgb(0, 0, 0);">
+    <div class="row">
+        <h5 class="col pt-4" style="color: white; text-transform: uppercase;">
+            &emsp;
+            <span class="dot" style="background-color: rgb(0, 183, 255); margin-bottom: 1px;"></span>
+            Reserve
+        </h5>
+        <div class="col-3 pt-2">
+            <img src="<%= Cinemas.logo %>" width="100px" style="float: right;">
+        </div>
+    </div>
+</div>
+<!-- End of Banner -->
+
+<!-- Reservation Form -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/showtime.css">
+
+<form action="/booking/<%= Session._id %>" method="POST">
+    <div class="album py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2">
+
+                <div class="col" style="background-color: rgb(199, 198, 195);">
+
+
+                <p style="background-color: rgb(0, 0, 0); color:white; text-align: center;">SCREEN</p>
+
+                <!-- Seat -->
+                <div class="row mb-3">
+
+                    <!-- Row A -->
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('A1') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('A1')">
+                                <img class="seat" id="A1" src="/picture/cinema/seat.png" style="width: 4.7rem; height: 4.7rem">
+                                <input type='hidden' name="A1" id="iA1" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('A2') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('A2')">
+                            <img class="seat" id="A2" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="A2" id="iA2" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('A3') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('A3')">
+                            <img class="seat" id="A3" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="A3" id="iA3" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('A4') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('A4')">
+                            <img class="seat" id="A4" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="A4" id="iA4" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <!-- Row B -->
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('B1') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('B1')">
+                            <img class="seat" id="B1" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="B1" id="iB1" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('B2') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('B2')">
+                            <img class="seat" id="B2" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="B2" id="iB2" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('B3') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('B3')">
+                            <img class="seat" id="B3" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="B3" id="iB3" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('B4') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('B4')">
+                            <img class="seat" id="B4" src="/picture/cinema/seat.png" style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="B4" id="iB4" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <!-- Row C -->
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('C1') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('C1')">
+                            <img class="seat" id="C1" src="/picture/cinema/seat.png" style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="C1" id="iC1" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 5px;">
+                        <% if ( Session.seats.includes('C2') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('C2')">
+                            <img class="seat" id="C2" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="C2" id="iC2" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('C3') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('C3')">
+                            <img class="seat" id="C3" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="C3" id="iC3" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('C4') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="booking('C4')">
+                            <img class="seat" id="C4" src="/picture/cinema/seat.png" style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="C4" id="iC4" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <!-- Row D -->
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('D1') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="bookingHoney('D1')">
+                            <img class="seat" id="D1" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="D1" id="jD1" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+                    
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('D2') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="bookingHoney('D2')">
+                            <img class="seat" id="D2" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="D2" id="jD2" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('D3') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="bookingHoney('D3')">
+                            <img class="seat" id="D3" src="/picture/cinema/seat.png"  style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="D3" id="jD3" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    <div class="col-3" style="margin-top: 7px;">
+                        <% if ( Session.seats.includes('D4') ) { %>
+                            <button type="button" class="seat-button" style="background:transparent; border:0" onclick="bookingHoney('D4')">
+                            <img class="seat" id="D4" src="/picture/cinema/seat.png" style="width: 4.8rem; height: 4.8rem">
+                            <input type='hidden' name="D4" id="jD4" value="n">
+                            </button>
+                        <% } else { %>
+                            <img class="seat"src="/picture/cinema/seat.png" style="opacity: 0.1; width: 4.8rem; height: 4.8rem">
+                        <% } %>
+                    </div>
+
+                    
+                </div>
+
+                </div>
+
+                <!-- Booking -->
+
+                <div class="col" style="background-color: green; display:flex">
+                    <div>
+                        <img src="<%= Movies.image %>" style="width: 11rem;">
+                    </div>
+
+                    <div>
+                        <h1><%= Movies.name %></h1>
+                        <p>Time:  <%= Movies.time %></p>
+                        <p>Cinema:  <%= Cinemas.name %></p>
+                        <p>Theater: <%= Session.theater %></p>
+                        <p>Date: <%= Session.date %></p>
+                    </div>
+                </div>
+
+                <h1>Reservation</h1>
+                <h3 style="color: gray;">Seat: <span id="seat"></span></h3>
+                <h3 style="color: gray;">Price: <span id="price"></span> Baht</h3>
+                <div style="position: relative; height: 80px;">
+                    <button id="submit" type="submit" class="btn btn-primary seat-submit mb-3">Reserve</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+  <input type="hidden" name="booking[date]" value="<%= Session.date %>">
+  <input type="hidden" name="booking[time]" value="<%= Session.time %>">
+  <input type="hidden" name="booking[theater]" value="<%= Session.theater %>">
+  <input type="hidden" name="booking[moviesName]" value="<%= Movies.name %>">
+  <input type="hidden" name="booking[moviesImage]" value="<%= Movies.image %>">
+  <input type="hidden" name="booking[cinemaName]" value="<%= Cinemas.name %>">
+  <input type="hidden" name="booking[cinemaImage]" value="<%= Cinemas.logo %>">
+
+</form>
+<!-- End of Reservation Form -->
+
+<script>
+    var price = 0; seat = 0;
+
+    document.getElementById("seat").innerHTML = seat;
+    document.getElementById("price").innerHTML = price;
+
+    if ( seat > 0 ) {
+        document.getElementById('submit').disabled = false;
+    }
+    else if ( seat == 0 ) {
+        document.getElementById('submit').disabled = true;
+    }
+
+    function booking(selectedSeat) {
+        if(document.getElementById('i' + selectedSeat).value == 'n'){
+            document.getElementById(selectedSeat).style.opacity = '0.5';
+            document.getElementById('i' + selectedSeat).value = 'y';
+
+            seat += 1;
+            price += 80;
+
+            document.getElementById("seat").innerHTML = seat;
+            document.getElementById("price").innerHTML = price;
+        }
+        else if(document.getElementById('i' + selectedSeat).value == 'y'){
+            document.getElementById(selectedSeat).style.opacity = '1';
+            document.getElementById('i' + selectedSeat).value = 'n';
+            
+            seat -= 1;
+            price -= 80;
+
+            document.getElementById("seat").innerHTML = seat;
+            document.getElementById("price").innerHTML = price;
+        } 
+
+        if ( seat > 0 ) {
+            document.getElementById('submit').disabled = false;
+        }
+        else if ( seat == 0 ) {
+            document.getElementById('submit').disabled = true;
+        }
+    }
+
+    function bookingHoney(selectedSeat) {
+        
+        if(document.getElementById('j' + selectedSeat).value == 'n'){
+            document.getElementById(selectedSeat).style.opacity = '0.5';
+            document.getElementById('j' + selectedSeat).value = 'y';
+
+            seat += 1;
+            price += 100;
+
+            document.getElementById("seat").innerHTML = seat;
+            document.getElementById("price").innerHTML = price;
+        }
+        else if(document.getElementById('j' + selectedSeat).value == 'y'){
+            document.getElementById(selectedSeat).style.opacity = '1';
+            document.getElementById('j' + selectedSeat).value = 'n';
+            
+            seat -= 1;
+            price -= 100;
+
+            document.getElementById("seat").innerHTML = seat;
+            document.getElementById("price").innerHTML = price;
+        } 
+
+
+        if ( seat > 0 ) {
+            document.getElementById('submit').disabled = false;
+        }
+        else if ( seat == 0 ) {
+            document.getElementById('submit').disabled = true;
+        }
+    }
+</script>
+
+<%- include('../partials/footer.ejs') %>

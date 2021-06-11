@@ -1,4 +1,32 @@
 <%- include('../partials/header.ejs') %>
+
+<% var weekday = new Array(7), month = new Array(12); %>
+<% weekday[0] = "Sun", weekday[1] = "Mon", weekday[2] = "Tues", weekday[3] = "Wed", weekday[4] = "Thurs", weekday[5] = "Fri", weekday[6] = "Sat"; %>
+<% month[0] = "Jan", month[1] = "Feb",month[2] = "Mar", month[3] = "Apr", month[4] = "May", month[5] = "June", month[6] = "July", month[7] = "Aug", month[8] = "Sept", month[9] = "Oct", month[10] = "Nov", month[11] = "Dec";  %>
+<% var Time1 = new Date() %>
+
+<% var Time2 = new Date(Time1) %>
+<% Time2.setDate(Time2.getDate() + 1) %>
+
+<% var Time3 = new Date(Time2) %>
+<% Time3.setDate(Time3.getDate() + 1) %>
+
+<% var Time4 = new Date(Time3) %>
+<% Time4.setDate(Time4.getDate() + 1) %>
+
+<% var Day1 = Time1.getDay(), Month1 = Time1.getMonth(), Date1 = Time1.getDate(); %>
+<% var D1 = weekday[Day1] + ' ' + Date1 + ' ' + month[Month1]; %>
+
+<% var Day2 = Time2.getDay(), Month2 = Time2.getMonth(), Date2 = Time2.getDate(); %>
+<% var D2 = weekday[Day2] + ' ' + Date2 + ' ' + month[Month2]; %>
+
+<% var Day3 = Time3.getDay(), Month3 = Time3.getMonth(), Date3 = Time3.getDate(); %>
+<% var D3 = weekday[Day3] + ' ' + Date3 + ' ' + month[Month3]; %>
+
+<% var Day4 = Time4.getDay(), Month4 = Time4.getMonth(), Date4 = Time4.getDate(); %>
+<% var D4 = weekday[Day4] + ' ' + Date4 + ' ' + month[Month4]; %>
+
+
   <link rel="stylesheet" href="../stylesheets/moviedetail.css">
   <div class="total-detail">
     <div class="sub-detail">
@@ -40,6 +68,8 @@
   <div>
     <h3 class="h3-header-movie"><%= movie.name %></h3>
     <p class="movie-rating"><i class="fa fa-star"></i> <%= movie.rating %> / 10</p>
+
+    <button><a href="/movie/<%= movie.id %>/showtime">Get ticket</a></button>
 
   </div>
 </div>
@@ -106,4 +136,70 @@
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
+
+
+      <script>
+        var weekday = new Array(7), month = new Array(12);
+        weekday[0] = "Sun", weekday[1] = "Mon", weekday[2] = "Tues", weekday[3] = "Wed", weekday[4] = "Thurs", weekday[5] = "Fri", weekday[6] = "Sat";
+        month[0] = "Jan", month[1] = "Feb",month[2] = "Mar", month[3] = "Apr", month[4] = "May", month[5] = "June", month[6] = "July", month[7] = "Aug", month[8] = "Sept", month[9] = "Oct", month[10] = "Nov", month[11] = "Dec";
+    
+        var currentTime = new Date();
+        var hours = currentTime.getHours(), minutes = currentTime.getMinutes();
+        var todayDay = currentTime.getDay(), todayMonth = currentTime.getMonth(), todayDate = currentTime.getDate();
+        var today = weekday[todayDay] + ' ' + todayDate + ' ' + month[todayMonth];
+        var selectDay = document.getElementById("selectDay").value;
+    
+        if ( today == selectDay ) {
+            if ( hours == 11 && minutes > 15 || hours > 11 ){
+                document.getElementById("11").disabled = true;
+            }
+            if ( hours >= 13 && minutes > 15 || hours > 13 ){
+                document.getElementById("13").disabled = true;
+            }
+            if ( hours >= 15 && minutes > 15 || hours > 15 ){
+                document.getElementById("15").disabled = true;
+            }
+            if ( hours >= 16 && minutes > 15 || hours > 16 ){
+                document.getElementById("16").disabled = true;
+            }
+            if ( hours >= 18 && minutes > 15 || hours > 18 ){
+                document.getElementById("18").disabled = true;
+            }
+            if ( hours >= 21 && minutes > 15 || hours > 21 ){
+                document.getElementById("21").disabled = true;
+            }
+        }
+    
+        function check(checkSelectDay) {
+            if ( today == checkSelectDay ) {
+                if ( hours >= 11 && minutes > 15 || hours > 11 ){
+                    document.getElementById("11").disabled = true;
+                }
+                if ( hours >= 13 && minutes > 15 || hours > 13 ){
+                    document.getElementById("13").disabled = true;
+                }
+                if ( hours >= 15 && minutes > 15 || hours > 15 ){
+                    document.getElementById("15").disabled = true;
+                }
+                if ( hours >= 16 && minutes > 15 || hours > 16 ){
+                    document.getElementById("16").disabled = true;
+                }
+                if ( hours >= 18 && minutes > 15 || hours > 18 ){
+                    document.getElementById("18").disabled = true;
+                }
+                if ( hours >= 21 && minutes > 15 || hours > 21 ){
+                    document.getElementById("21").disabled = true;
+                }
+            } else if ( today != checkSelectDay ) {
+                document.getElementById("11").disabled = false;
+                document.getElementById("13").disabled = false;
+                document.getElementById("15").disabled = false;
+                document.getElementById("16").disabled = false;
+                document.getElementById("18").disabled = false;
+                document.getElementById("21").disabled = false;
+            }
+        }
+    </script>
+
+
       <%- include('../partials/footer.ejs') %>
