@@ -21,11 +21,19 @@
 
 
                 <div class="part-movie">
-                    <p class="movie-head">LOCATION</p>
-                    <button id="sub-now" class="showing-movie decoration">Bangkok And Metropolitan Region</button>
-                    <button id="sub-come" class="coming-movie decoration">Central Region</button>
-                    <hr class="line line-edit">
+                    <p class="movie-head"><img src="/picture/cinema/location.png" style="width: 17rem; height:12rem;text-align:center;"></p>
+                    <p class="pre-head">
+                        <button id="sub-now" class="showing-movie decoration">Bangkok And Metropolitan Region</button>
+                        <button id="sub-come" class="coming-movie decoration">Central Region</button>
+                        <hr class="line line-edit">
+                    </p>
                 </div>
+
+                <% if (!currentUser) { %>
+                    <% } else if( currentUser && currentUser.state === 'admin' || currentUser && currentUser.state === 'cheif'){ %>
+                    
+                    <div class="admin-tool"><a href="/cinemas/new" style="text-decoration: none;"><i class="fa fa-plus"> </i><span class="new">Add new cinemas</span></a></div>
+                    <% } %>
 
                 <div id="now-showing">
                     <div class="album py-5">
@@ -45,7 +53,7 @@
                                                             <div class="d-flex justify-content-between align-items-center">
                                                               <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit">edit</a>
                                                               <form action="/cinemas/<%= cinema._id %>?_method=DELETE" method="POST">
-                                                                <button type="button" class="btn btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
+                                                                <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
                                                                 <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
@@ -95,7 +103,7 @@
                                                             <div class="d-flex justify-content-between align-items-center">
                                                             <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit">edit</a>
                                                             <form action="/cinemas/<%= cinema._id %>?_method=DELETE" method="POST">
-                                                                <button type="button" class="btn btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
+                                                                <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
                                                                 <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">

@@ -55,22 +55,8 @@ body{
     
 }
 
-.submit{
-    margin-left: 50px;
-    background-image: linear-gradient(270deg,rgb(22, 186, 236)5%,rgb(40, 125, 236) 39% );
-    width: 150px;
-    height: 40px;
-    border-radius: 5px;
-    font-weight: bold;
-    color: white;
-}
-.submit:hover{
-    box-shadow: 2px 2px 10px rgb(160, 160, 160);
-}
-.select{
 
-    background: transparent;  
-}
+
 
 
 .select,.option{
@@ -82,51 +68,149 @@ body{
     margin: 0; 
     cursor: pointer;
 }
-.select{
-    background:  rgb(189, 228, 243);
-    width: 200px;
-    height: 32px;
-    padding-left: 10px;
-    outline: solid transparent;
-    font-size: 1.1em;
-    color: rgb(25, 68, 150);
-    outline: none;
-    border: none;
-    border-bottom: 2px solid rgb(25, 68, 150);
-    margin-left: 50px;
-}
-.option{
-    background: rgb(210, 240, 252);
-    padding-left: 5px;
-    text-align: center;
-    border-bottom: 2px solid rgb(25, 68, 150)
-}
+
 .part-movie{
-    font-family: 'Kanit';
-    margin: 0 auto;
-    width: 78%;
-    margin-top: 70px;
+    width: 100%;
+    box-shadow: inset 3px 3px 9px rgb(29, 25, 25);
+    border-radius: 5px 5px;
+    background-color: #44444C;
+    color: #fff;
+    font-family: sans-serif;
+    text-align: center;
+}
   
-}
-.movie-head{
+  input[type="radio"] {
+    display: none;
+  }
   
-    width: 18%;
-    margin: 0 auto;
-    font-size:  3.0em ;
-    font-weight: bold;
-    color: rgb(48, 126, 228); 
-    text-shadow: 2px 2px 2px rgb(243, 228, 141);
-    margin-bottom: 40px;
-}
-.decoration{
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    background-color: rgba(0,0,0,0);
-    margin-left: 50px;
-    height: 60px;
-    border: 0;
-    
-}
+  h1 {
+    margin-top: 50px;
+    text-transform: uppercase;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: 140px;
+  }
+  
+  .buttons #sub-now {
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 85px;
+    border-radius: 25%;
+    margin: 20px;
+    background-color: rgb(230, 72, 72);
+    background-image: linear-gradient(to right, rgb(180, 134, 7) 0%, rgb(180, 134, 7) 20%, rgb(180, 134, 7) 80%, rgb(247, 191, 38) 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 31, 0.75);
+    cursor: pointer;
+  }
+
+  .buttons #sub-come {
+    display: block;
+    position: relative;
+    width: 150px;
+    height: 85px;
+    border-radius: 25%;
+    margin: 20px;
+    background-color: rgb(139, 20, 4);
+    background-image: linear-gradient(to right, rgb(139, 20, 4) 0%, rgb(139, 20, 4) 20%, rgb(139, 20, 4) 80%, rgb(197, 33, 12) 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 31, 0.75);
+    cursor: pointer;
+  }
+  
+  .buttons label:hover {
+    filter: brightness(1.125);
+    box-shadow: 0 2px 10px 2px rgba(29, 29, 36, 0.75);
+  }
+  
+  .buttons #sub-now:after {
+    padding-top: 30px;
+    content: "NOW SHOWING";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background-color: rgb(247, 191, 38);
+    transform: translateY(-20px);
+    transition-duration: 125ms;
+    transition-delay: 125ms;
+  }
+
+  .buttons #sub-come:after {
+    padding-top: 30px;
+    content: "COMINGSOON";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background-color:rgb(255, 72, 47) ;
+    transform: translateY(-20px);
+    transition-duration: 125ms;
+    transition-delay: 125ms;
+  }
+  
+  #i_1:checked ~ .buttons label:nth-child(1)
+  {
+    box-shadow: 0 2px 1px 2px rgba(107, 80, 4, 0.75);
+    color: #fff;
+  }
+
+  #i_2:checked ~ .buttons label:nth-child(2){
+    box-shadow: 0 2px 1px 2px rgba(80, 9, 4, 0.75);
+    color: #fff;
+  }
+  
+  #i_1:checked ~ .buttons label:nth-child(1):after
+   {
+    transform: translateY(-4px);
+    background-color: rgb(223, 168, 18);
+    transition-duration: 125ms;
+    transition-delay: initial;
+  }
+  #i_2:checked ~ .buttons label:nth-child(2):after{
+    transform: translateY(-4px);
+    background-color: rgba(211, 33, 20, 0.75);
+    transition-duration: 125ms;
+    transition-delay: initial;
+  }
+
+  #i_1:checked ~ .buttons label:nth-child(1):active,
+  #i_2:checked ~ .buttons label:nth-child(2):active
+   {
+    box-shadow: 0 1px 1px 2px rgba(7, 15, 32, 0.75);
+  }
+  
+  #i_1:checked ~ .buttons label:nth-child(1):active:after,
+  #i_2:checked ~ .buttons label:nth-child(2):active:after
+   {
+    transform: translateY(-1px);
+  }
+  
+  
+  p.which_button:after                { content: "#" }
+  #i_1:checked ~ p.which_button:after { content: "1" }
+  #i_2:checked ~ p.which_button:after { content: "2" }
+ 
+  
+  .unchecker {
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 150vh;
+  }
+  
+  #i_0:checked ~ .buttons > label:after {
+    transition-delay: initial;
+  }
+  
+
 .decoration-1{
     text-decoration: none;
     color: rgb(255, 255, 255);
@@ -147,24 +231,12 @@ body{
     color:rgb(48, 186, 228);
     
 }
-.coming-movie{
-    font-size: 1.4em;
-    font-weight: bolder;
-    text-shadow: 2px 2px 2px rgb(150, 143, 143);
-    height: 60px;
-}
-.showing-movie{
-    font-size: 1.4em;
-    font-weight: bolder;
-    text-shadow: 2px 2px 2px rgb(150, 143, 143);
-     
-   
-}
-.decoration_1{
+
+/* .decoration_1{
     color:rgb(48, 186, 228);
     border-bottom: 3px solid rgb(48, 186, 228);
     
-}
+} */
 #coming-soon{
     margin-left: -90px;
     margin-top: 50px;
@@ -176,19 +248,9 @@ body{
     margin-top: 50px;
    
 }
-.space-decoration{
-    padding-left: 10%;
-    width: 70%;
-    margin: 0 auto;
-    
-}
 
-.line{
-    height: 20px;
-    font-size: 0;
-    margin-top: -2px;
-    border: 1px solid whitesmoke;
-}
+
+
 .line-1{
     width: 50%;
     height: 20px;
@@ -254,8 +316,24 @@ body{
 }
 .album-1{
     margin: 0 auto;
-    
     width: 75%;
 } 
 
+.admin-tool{
+  background-color: rgb(9, 9, 88); 
+  color:white; 
+  text-align:center;
+  height:60px;
+  font-size: 1.2em;
+  padding-top: 10px;
+}
+.new{
+  color:white; 
+  font-family: "kanit";
+  text-decoration: none;
+}
+.fa-plus{
+  color:white; 
+  
+}
 

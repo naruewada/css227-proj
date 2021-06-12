@@ -1,3 +1,7 @@
+body{
+  background-color: black;
+}
+
 .movie-head{
     font-size:  3.0em ;
     font-weight: bold;
@@ -16,8 +20,8 @@
  }
  .user-detail{
    margin-left: 280px;
-   margin-top: -190px;
-   margin-bottom: 200px;
+   margin-top: -170px;
+   margin-bottom: 10px;
  }
  .mypage-edit{
    font-weight: bold;
@@ -126,4 +130,26 @@
  .card{
      border: 1px solid gray;
  }
+
+ .up-img{
+   margin-top: 80px;
+ }
  
+ .button-control{
+   margin-top: 17px;
+ }
+
+ .line-5{
+  height: 20px;
+  font-size: 0;
+  border: 1px solid whitesmoke;
+ 
+}
+.dont-like{
+  color: aliceblue;
+  color: 1.5em;
+}
+
+.form-control{
+  width: 40%;
+}

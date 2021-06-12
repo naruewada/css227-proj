@@ -54,7 +54,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit">edit</a>
                                 <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
-                                <button type="button" class="btn btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>"> DELETE &nbsp;</button>
+                                <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>"> DELETE &nbsp;</button>
 
                                 <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered">

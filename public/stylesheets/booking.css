@@ -1,0 +1,28 @@
+body{
+    background-color: black;
+}
+
+.col-dec{
+    border: 2px solid white;
+}
+
+.p-detail{
+
+    color: white;
+    font-size: 1.3em;
+}
+
+.p-detail-1{
+    color: rgb(250, 201, 42);
+    font-weight: bold;
+}
+
+.header-h1{
+    text-shadow: 2px 2px 2px rgb(105, 105, 105);
+}
+
+.now-showing{
+    margin-top: 20px;
+}
+
+  

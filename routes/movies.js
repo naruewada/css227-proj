@@ -89,31 +89,31 @@ router.get('/new', middleware.checkAdmin, function(req,res){
 
 // show detail
 
-router.get("/:id", function(req, res){
-    Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
-        if(err){
-            console.log(err);
-        } else {
-            res.render("movies/show.ejs", {movie: foundMovie});
-        }
-    });
-});
-
 // router.get("/:id", function(req, res){
 //     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
 //         if(err){
 //             console.log(err);
 //         } else {
-//             Cinema.find({}, function(err, allCinemas){
-//                 if(err){
-//                     console.log(err);
-//                 } else {
-//                     res.render('movies/showtime.ejs', { movie: foundMovie, Cinema: allCinemas });
-//                 }
-//             });
+//             res.render("movies/show.ejs", {movie: foundMovie});
 //         }
 //     });
 // });
+
+router.get("/:id", function(req, res){
+    Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
+        if(err){
+            console.log(err);
+        } else {
+            Cinema.find({}, function(err, allCinemas){
+                if(err){
+                    console.log(err);
+                } else {
+                    res.render('movies/show.ejs', { movie: foundMovie, Cinema: allCinemas });
+                }
+            });
+        }
+    });
+});
 
 // router.get("/:id/showtime", function(req, res){
 //     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
@@ -160,27 +160,27 @@ router.get("/:id", function(req, res){
 // });
 
 
-router.get("/:id/showtime", function(req, res){
-    Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
-        if(err){
-            console.log(err);
-        } else {
-            Cinema.find({}, function(err, allCinema){
-                if(err){
-                    console.log(err);
-                } else {
-                    Cinema.findById(req.params.id, function(err, foundCinemas){
-                        if(err){
-                            console.log(err);
-                        } else {
-                            res.render('movies/showtime.ejs', { movie: foundMovie, Cinema: allCinema, Cinemas: foundCinemas });
-                        }
-                    });
-                }
-            });
-        }
-    });
-});
+// router.get("/:id", function(req, res){
+//     Movie.findById(req.params.id).populate('comments').exec(function(err, foundMovie){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             Cinema.find({}, function(err, allCinema){
+//                 if(err){
+//                     console.log(err);
+//                 } else {
+//                     Cinema.findById(req.params.id, function(err, foundCinemas){
+//                         if(err){
+//                             console.log(err);
+//                         } else {
+//                             res.render('movies/show.ejs', { movie: foundMovie, Cinema: allCinema, Cinemas: foundCinemas });
+//                         }
+//                     });
+//                 }
+//             });
+//         }
+//     });
+// });
 
 
 

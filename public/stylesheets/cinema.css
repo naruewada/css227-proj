@@ -27,12 +27,12 @@ body{
  .part-movie{
      font-family: 'Kanit';
      margin: 0 auto;
-     width: 44%;
+     width: 100%;
      margin-top: 70px;
  }
  .movie-head{
-     width: 30%;
-     margin: 0 auto;
+     width: 100%;
+     text-align: center;
      font-size:  3.0em ;
      font-weight: bold;
      color: rgb(48, 126, 228); 
@@ -70,8 +70,10 @@ body{
  }
  .line{
      height: 20px;
+     width: 50%;
+     margin: 0 auto;
      font-size: 0;
-     margin-top: -2px;
+     margin-top: -20px;
      border: 1px solid whitesmoke;
  }
  .line-1{
@@ -131,5 +133,23 @@ body{
  .card{
      border: 1px solid gray;
  }
- 
- 
+ .pre-head{
+    text-align: center;
+ }
+ .admin-tool{
+    background-color: rgb(9, 9, 88); 
+    color:white; 
+    text-align:center;
+    height:60px;
+    font-size: 1.2em;
+    padding-top: 10px;
+}
+.new{
+    color:white; 
+    font-family: "kanit";
+    text-decoration: none;
+}
+.fa-plus{
+    color:white; 
+    
+}

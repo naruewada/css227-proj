@@ -76,6 +76,8 @@ body{
 
 .search-bar {
     display: flex;
+    margin-left: -30px;
+    margin-right: 50px;
     /* padding-left: 420px; */
 }
 
@@ -112,7 +114,7 @@ body{
     background: transparent;
     border-radius: 1.5em;
     box-shadow: 0 0 0 0.4em #171717 inset;
-    padding: 0.75em;
+    padding: 0.7em;
     transform: translate(0.5em,0.5em) scale(0.5);
     transform-origin: 100% 0;
     -webkit-appearance: none;
@@ -156,7 +158,7 @@ body{
     background: #f1f1f1;
     border-radius: 0 0.25em 0.25em 0;
     top: 51%;
-    left: 51%;
+    left: 60%;
     width: 0.75em;
     height: 0.25em;
     transform: translate(0.2em,0) rotate(45deg);
@@ -211,3 +213,4 @@ body{
         background: #f1f1f1;
     }
 }
+

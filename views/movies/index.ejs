@@ -5,16 +5,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="/stylesheets/movie.css">
 
-  <div class="cinema-show">
-
-    <div class="part-movie">
-      <p class="movie-head">Movie</p>
-      <p class="space-decoration">
-        <button id="sub-now" class="showing-movie decoration">Now showing</button>
-        <button id="sub-come" class="coming-movie decoration">Coming soon</button>
-        <hr class="line line-edit">
-      </p>
-     
+  <div class="part-movie">
+    
+    <input type="radio" name="i_button" id="i_1" />
+    <input type="radio" name="i_button" id="i_2" />
+    <label for="i_0" class="unchecker"></label>
+    
+    <div class="buttons" >
+      <label for="i_1" id="sub-now"></label>
+      <label for="i_2" id="sub-come"></label>
+      
     </div>
   </div>
 
@@ -66,7 +66,7 @@
                         <div class="d-flex justify-content-between align-items-center">
                           <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit">edit</a>
                           <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
-                            <button type="button" class="btn btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
+                            <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
                             <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -112,27 +112,6 @@
 
   <div id="coming-soon" class="hidden">
 
-    <div class="dropdown dropdown-2">
-      <a class="btn  dropdown-toggle btn-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        <% if ( sort=='All' ) { %>
-          &ensp; Genre
-          <% } else { %>
-            &ensp; Sort by : <%= sort %>
-              <% } %>
-                <!-- --- Sorting --- -->
-      </a>
-
-      <ul class="dropdown-menu  " aria-labelledby="dropdownMenuLink">
-        <li><a class="dropdown-item " href="/movie">All</a></li>
-        <li><a class="dropdown-item " href="/movie/genre-comingsoon/action">Action</a></li>
-        <li><a class="dropdown-item " href="/movie/genre-comingsoon/fantasy">Fantasy</a></li>
-        <li><a class="dropdown-item " href="/movie/genre-comingsoon/horror">Horror</a></li>
-        <li><a class="dropdown-item " href="/movie/genre-comingsoon/comedy">Comedy</a></li>
-        <li><a class="dropdown-item " href="/movie/genre-comingsoon/Adventure">Adventure</a></li>
-        <li><a class="dropdown-item " href="#">Genre</a></li>
-      </ul>
-    </div>
 
     <div class="album py-5">
       <div class="container">
@@ -152,10 +131,10 @@
                     <p class="card-text"><span>Release Date: <%= movie.date %></span></p>
                     
                     <% if( currentUser && currentUser.state === 'admin' || currentUser && currentUser.state === 'cheif'){ %>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center " style="margin-top: 30px;">
                       <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit">edit</a>
                       <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
-                        <button type="button" class="btn btn-delete" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
+                        <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
                           <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">

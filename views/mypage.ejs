@@ -10,26 +10,27 @@
 
         <div class="alert alert-success mypage-background" role="alert">
             <p class="movie-head">MY PROFILE</p>
-            <img src="<%= currentUser.picture %>" alt="" style="width: 50px; height: 50px;">
+            <img src="<%= currentUser.picture %>" alt="" style="width: 9rem; height:  9rem;">
             <p class="user-detail"><span class="mypage-edit">Username : <%= currentUser.username %></span><br>
                 <span class="mypage-edit">First name : <%= currentUser.firstname %></span><br>
                 <span class="mypage-edit">Last name : <%= currentUser.lastname %></span><br><br>
-                <a href="#"><button class="mypage-edit-button"><i class="fa fa-edit"></i>Edit</button></a>
             </p>
-            <form action="/user/<%= currentUser._id %>" method="POST" enctype="multipart/form-data">
+            <form action="/user/<%= currentUser._id %>" method="POST" enctype="multipart/form-data" class="up-img">
                 <input type="file" class="form-control" name="image" accept="image/*">
-                <button type="submit">Submit</button>
-            </form>
+                <button type="submit" class="btn btn-warning">Submit</button>
+            </form><hr class="line-5">
             
-            <!-- <hr class="line"> -->
+            
         </div>
-        <div class="alert alert-success mypage-background" role="alert">
-            <button id="sub-now" class="showing-movie decoration">Movie history</button>
-            <button id="sub-come" class="coming-movie decoration">My favorite movie</button>
-        </div>
+    </div>
 
+    <div class="alert alert-success mypage-background button-control" role="alert">
+        <button id="sub-now" class="showing-movie decoration">Movie history</button>
+        <button id="sub-come" class="coming-movie decoration">My favorite movie</button>
+    </div>
+   
 
-        <div id="now-showing">
+    <div id="now-showing">
         
             <% if (currentUser) { %>
                 <% Booking.forEach(function(thisReserve){ %>
@@ -54,14 +55,13 @@
                             <p>Cinema : <%= thisReserve.cinemaName %></p>
                             <p>Theater : <%= thisReserve.theater %></p>
                             <p>Seat no. : <%= thisReserve.seats %></p>
-                        </div><br>
-                        <hr class="line">
-                    </div>
+                        </div>
+                    </div><hr class="line" >
                 <% }); %>
             <% } %>
-        </div>
+    </div>
 
-        <div id="coming-soon" class="hidden">
+    <div id="coming-soon" class="hidden">
 
             <div class="album py-5">
                 <div class="container">
@@ -70,20 +70,18 @@
                     <!-- picture and detail -->
         
                     <% if ( movie.likes == 0 ) {  %>
-                      &ensp; <p class="dont-like"> You don't have a movie in your favorite. Let's add a movie to your favorite! </p> 
+                      &ensp; <p class="dont-like"> Empty! </p> 
                   <% } else {  %>
                       <% movie.likes.forEach(function(liked){ %>
                           <div class="col">
-                              <a href="/movie/<%= liked.movies.id %>" class="detail">
-                                  <div class="card shadow-sm" style="width: 16rem;">
-                                      <img src="<%= liked.movies.image %>" class="card-img-top">
+                              <a href="/movie/<%= liked.movies.id %>" class="detail" style="text-decoration: none;">
+                                  <div class="card shadow-sm bg-dark"  style="width: 14.3rem;">
+                                      <img src="<%= liked.movies.image %>" class="card-img-top" style="height: 21rem;">
                                       <div class="card-body">
                                           <h5 class="card-title">
                                               <%= liked.movies.name %>
                                           </h5>
-                                          <p class="card-text">
-                                              <%= liked.date %>
-                                          </p>
+                                          
                                       </div>
                                   </div>
                               </a>
