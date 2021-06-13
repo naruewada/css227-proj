@@ -74,10 +74,10 @@ router.get('/:id/edit', middleware.checkAdmin,  function(req, res){
 
 router.put('/:id', upload.fields([{ name: 'image' }, { name: 'logo' }]), function(req, res){
     if ( req.files['image'] ){
-        req.body.cinema.image = '/images/cinema/uploads/' + req.files['image'][0].filename;
+        req.body.cinema.image = '/picture/cinema/' + req.files['image'][0].filename;
     }
     if ( req.files['logo'] ){
-        req.body.cinema.logo = '/images/cinema/uploads/' + req.files['logo'][0].filename;
+        req.body.cinema.logo = '/picture/cinema/' + req.files['logo'][0].filename;
     }
     Cinemas.findByIdAndUpdate(req.params.id, req.body.cinema, function( err, updatedCinemas ){
         if(err) {

@@ -44,13 +44,13 @@
 <% var Day7 = Time7.getDay(), Month7 = Time7.getMonth(), Date7 = Time7.getDate(); %>
 <% var D7 = weekday[Day7] + ' ' + Date7 + ' ' + month[Month7]; %>
 
-
+<script src="/show.js" defer></script>
   <link rel="stylesheet" href="../stylesheets/moviedetail.css">
   <div class="total-detail">
     <div class="sub-detail">
       <div class="messege-detail">
         <h1 class="head-messege"><%= movie.name %></h1>
-        <p class="messege-dec"><i class=" far fa-clock"></i> <%= movie.time %></p>
+        <p class="messege-dec"><i class=" far fa-clock"></i> <%= movie.time %> mins</p>
         <p class="messege-dec"><i class="fa fa-tags" ></i> <%= movie.genre %></p>
         <p class="messege-dec"><i class="far fa-calendar"></i> <%= movie.date %></p>
         <p class="messege-dec"><i class="fa fa-user-friends" ></i> <%= movie.actor %></p>
@@ -85,13 +85,30 @@
   <p><img src="<%= movie.image %>" style="width: 13rem;"></p>
   <div>
     <h3 class="h3-header-movie"><%= movie.name %></h3>
-    <p class="movie-rating"><i class="fa fa-star"></i> <%= movie.rating %> / 10</p>
-
+    <% if(movie.type == 'comingsoon'){ %>
+        <% } else { %>
+            <p class="movie-rating"><i class="fa fa-star"></i> <%= movie.rating %> / 10</p>
+        <% } %>
    
+    <div class="set-button">
+        <button id="conment-show" class="conment-show">comment</button>
 
+        <% if(movie.type == 'comingsoon'){ %>
+        <button  disabled class="booking">booking</button>
+        <% } else { %>
+        <button id="booking" class="booking" >booking</button>
+        <% } %>
+    </div>
   </div>
-</div>
   
+</div>
+
+
+
+    
+
+
+<div id="comment-button" > 
   <hr>
   <p class="comments">Review! </p>
   <% var i = 0; %>
@@ -109,18 +126,18 @@
             <form action="/movie/<%= movie._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>" >
-                  DELETE &nbsp;<i class="fa fa-trash"></i>
+                  DELETE 
               </button>
 
               <!-- Modal -->
-              <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
+              <div class="modal fade " id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                   <div class="modal-dialog modal-dialog-centered">
                       <div class="modal-content">
                           <div class="modal-header">
-                              <h5 class="modal-title">DELETE COMMENT</h5>
+                              <h5 class="modal-title" style="color: black;">DELETE COMMENT</h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body">
+                          <div class="modal-body" style="color: black;">
                               Do you want to delete this comment ?
                           </div>
                           <div class="modal-footer">
@@ -153,139 +170,141 @@
     <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-  
+</div>  
 
-<div class="container-fluid" style="height: 100%;margin-bottom:400px ">
-    <div class="row">
-        <div>
+<div id = "booking-tap"class="hidden">
+    <div class="container-fluid" style="height: 100%;margin-bottom:400px ">
+        <div class="row">
+            <div>
 
-            <div class="container-fluid pt-3 line-date">
-                <h4>
-                    <div class="scrollmenu row">
-                        <button class="col-2 btn-day" type="button" onclick="check('<%= D1 %>');">
-                            <%= D1 %>
-                        </button>
-                        <button class="col-2 btn-day" type="button" onclick="check('<%= D2 %>');">
-                            <%= D2 %>
-                        </button>
-                        <button class="col-2 btn-day" type="button" onclick="check('<%= D3 %>');">
-                            <%= D3 %>
-                        </button>
-                        <button class="col-2 btn-day" type="button" onclick="check('<%= D4 %>');">
-                            <%= D4 %>
-                        </button>
-                        <button class="col-2 btn-day" type="button" onclick="check('<%= D5 %>');">
-                            <%= D5 %>
-                        </button>
-                        <button class="col-2 btn-day" type="button" onclick="check('<%= D6 %>');">
-                            <%= D6 %>
-                        </button>
-                        <input type="hidden" value="<%= D1 %>" name="sessionDate" id="selectDay">
-                    </div>
-                </h4>
-            </div>
-
-          <% var i = 0; %>
-          <% Cinema.forEach(function(cinema){ %>
-                <div class="total">
-                    <div style="text-align: center; ">
-                        <h2 class="h2-cinema"><%= cinema.name %></h2>
-                    </div>
-                
-                    <!-- ------- Theater 1 ------- -->
-                    <form action="/session/<%= cinema.id %>/<%= movie.id %>" method="POST">
-                        <div>
-                            <div> 
-                                <div style=" margin: 0 auto"> 
-                                    <h3 class="h3-thea" >Theater 1 </h3>
-                                
-                                    <div class="h3-thea">
-                                        <div >
-                                            <button class="11 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="11:00">11:00</button>
-                                            <button class="15 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="15:00">15:00</button>
-                                            <button class="18 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="18:00">18:00</button>
-                                            <button class="21 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="21:00">21:00</button>
-                                        </div> 
-                                    </div>
-                                </div> 
-                            </div>
+                <div class="container-fluid pt-3 line-date">
+                    <h4>
+                        <div class="scrollmenu row">
+                            <button class="col-2 btn-day" type="button" onclick="check('<%= D1 %>');">
+                                <%= D1 %>
+                            </button>
+                            <button class="col-2 btn-day" type="button" onclick="check('<%= D2 %>');">
+                                <%= D2 %>
+                            </button>
+                            <button class="col-2 btn-day" type="button" onclick="check('<%= D3 %>');">
+                                <%= D3 %>
+                            </button>
+                            <button class="col-2 btn-day" type="button" onclick="check('<%= D4 %>');">
+                                <%= D4 %>
+                            </button>
+                            <button class="col-2 btn-day" type="button" onclick="check('<%= D5 %>');">
+                                <%= D5 %>
+                            </button>
+                            <button class="col-2 btn-day" type="button" onclick="check('<%= D6 %>');">
+                                <%= D6 %>
+                            </button>
+                            <input type="hidden" value="<%= D1 %>" name="sessionDate" id="selectDay">
                         </div>
-                        <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay1">
-                        <input type="hidden" name="session[theater]" value="1">
-                    </form><br>
-                    <!-- ------- End of Theater 1 ------- -->
+                    </h4>
+                </div>
 
-
-                    <!-- ------- Theater 2 ------- -->
-                    <form action="/session/<%= cinema.id %>/<%= movie.id %>" method="POST">
-                        <div  >
-                            <div >
-                                <div style=" margin: 0 auto" >
-                                    <h3 class="h3-thea">Theater 2 </h3>
-                                
-                                    <div class="h3-thea">
-                                        <div >
-                                            <button class="13 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="13:00">13:00</button>
-                                            <button class="16 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="16:00">16:00</button>
-                                        </div>
-                                    </div>
-                                </div>  
-                            </div>
+            <% var i = 0; %>
+            <% Cinema.forEach(function(cinema){ %>
+                    <div class="total">
+                        <div style="text-align: center; ">
+                            <h2 class="h2-cinema"><%= cinema.name %></h2>
                         </div>
-                        <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay2">
-                        <input type="hidden" name="session[theater]" value="2">
-                    </form><br>
-                    <!-- ------- End of Theater 2 ------- -->
-
-
-                    <!-- ------- Theater 3 ------- -->
+                    
+                        <!-- ------- Theater 1 ------- -->
                         <form action="/session/<%= cinema.id %>/<%= movie.id %>" method="POST">
-                            <div  >
-                                <div >
-                                    <div style=" margin: 0 auto">
-                                        <h3 class="h3-thea">Theater 3</h3>
-                                    
-                                        <div class="h3-thea">
-                                            <div>
-                                                <button class="10 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="10:00">10:00</button>
-                                                <button class="12 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="12:00">12:00</button>
-                                            </div>
-                                        </div>
-                                    </div>  
-                                </div>
-                            </div>
-                            <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay3">
-                            <input type="hidden" name="session[theater]" value="3">
-                        </form><br>
-                        <!-- ------- End of Theater 3 ------- -->
-
-
-                        <!-- ------- Theater 4 ------- -->
-                        <form action="/session/<%= cinema.id %>/<%= movie.id %>" method="POST">
-                            <div >
-                                <div >
-                                    <div style=" margin: 0 auto" >
-                                        <h3 class="h3-thea">Theater 4</h3>
+                            <div>
+                                <div> 
+                                    <div style=" margin: 0 auto"> 
+                                        <h3 class="h3-thea" >Theater 1 </h3>
                                     
                                         <div class="h3-thea">
                                             <div >
-                                                <button class="20 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="20:00">20:00</button>
-                                                <button class="22 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="22:00">22:00</button>
-                                                <button class="23 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="23:00">23:00</button>
+                                                <button class="11 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="11:00">11:00</button>
+                                                <button class="15 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="15:00">15:00</button>
+                                                <button class="18 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="18:00">18:00</button>
+                                                <button class="21 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="21:00">21:00</button>
+                                            </div> 
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay1">
+                            <input type="hidden" name="session[theater]" value="1">
+                        </form><br>
+                        <!-- ------- End of Theater 1 ------- -->
+
+
+                        <!-- ------- Theater 2 ------- -->
+                        <form action="/session/<%= cinema.id %>/<%= movie.id %>" method="POST">
+                            <div  >
+                                <div >
+                                    <div style=" margin: 0 auto" >
+                                        <h3 class="h3-thea">Theater 2 </h3>
+                                    
+                                        <div class="h3-thea">
+                                            <div >
+                                                <button class="13 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="13:00">13:00</button>
+                                                <button class="16 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="16:00">16:00</button>
                                             </div>
                                         </div>
                                     </div>  
                                 </div>
                             </div>
-                            <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay4">
-                            <input type="hidden" name="session[theater]" value="4">
+                            <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay2">
+                            <input type="hidden" name="session[theater]" value="2">
                         </form><br>
-                        <!-- ------- End of Theater 4 ------- -->
-                        
-                
-                </div><hr>
-          <% }); %>
-        </div> 
+                        <!-- ------- End of Theater 2 ------- -->
+
+
+                        <!-- ------- Theater 3 ------- -->
+                            <form action="/session/<%= cinema.id %>/<%= movie.id %>" method="POST">
+                                <div  >
+                                    <div >
+                                        <div style=" margin: 0 auto">
+                                            <h3 class="h3-thea">Theater 3</h3>
+                                        
+                                            <div class="h3-thea">
+                                                <div>
+                                                    <button class="10 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="10:00">10:00</button>
+                                                    <button class="12 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="12:00">12:00</button>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay3">
+                                <input type="hidden" name="session[theater]" value="3">
+                            </form><br>
+                            <!-- ------- End of Theater 3 ------- -->
+
+
+                            <!-- ------- Theater 4 ------- -->
+                            <form action="/session/<%= cinema.id %>/<%= movie.id %>" method="POST">
+                                <div >
+                                    <div >
+                                        <div style=" margin: 0 auto" >
+                                            <h3 class="h3-thea">Theater 4</h3>
+                                        
+                                            <div class="h3-thea">
+                                                <div >
+                                                    <button class="20 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="20:00">20:00</button>
+                                                    <button class="22 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="22:00">22:00</button>
+                                                    <button class="23 btn-time" type="submit" name="session[time]" class="sessionTimeButton" value="23:00">23:00</button>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                                <input type="hidden" value="<%= D1 %>" name="session[date]" id="selectDay4">
+                                <input type="hidden" name="session[theater]" value="4">
+                            </form><br>
+                            <!-- ------- End of Theater 4 ------- -->
+                            
+                    
+                    </div><hr>
+            <% }); %>
+            </div> 
+        </div>
     </div>
 </div>
   
@@ -314,6 +333,7 @@
             var k = document.getElementsByClassName("15");
             for ( var i = 0; i < k.length; i++ ) {
                  k[i].disabled = true;
+                
             }
         }
         if ( hours >= 18 && minutes > 15 || hours > 12 ){

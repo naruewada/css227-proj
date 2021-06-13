@@ -2,7 +2,7 @@
 
 
 
-<!------------------------------------------------- Nicha ---------------------------------------------->
+<!------------------------------------------------- banner ---------------------------------------------->
 
                 <script src="home.js" defer></script>
                 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
@@ -47,13 +47,14 @@
                                             <div class="card shadow-sm bg-dark" style="width: 14.3rem;">
                                                 <div class="card-body bg-dark">
                                                     <h5 class="card-title"><%= cinema.name %></h5>
+                                                    <p class="card-title">slogan: <%= cinema.slogan %></p>
                                                     
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <% if( currentUser && currentUser.state === 'cheif' || currentUser && currentUser.state === 'admin'){ %>
                                                             <div class="d-flex justify-content-between align-items-center">
-                                                              <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit">edit</a>
+                                                              <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit">EDIT</a>
                                                               <form action="/cinemas/<%= cinema._id %>?_method=DELETE" method="POST">
-                                                                <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
+                                                                <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">DELETE</button>
                                                                 <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">
@@ -97,13 +98,14 @@
                                             <div class="card shadow-sm bg-dark" style="width: 14.3rem;">
                                                 <div class="card-body bg-dark">
                                                     <h5 class="card-title"><%= cinema.name %></h5>
+                                                    <p class="card-title">slogan: <%= cinema.slogan %></p>
                                                 
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <% if( currentUser && currentUser.state === 'cheif' || currentUser && currentUser.state === 'admin'){ %>
                                                             <div class="d-flex justify-content-between align-items-center">
-                                                            <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit">edit</a>
+                                                            <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit">EDIT</a>
                                                             <form action="/cinemas/<%= cinema._id %>?_method=DELETE" method="POST">
-                                                                <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
+                                                                <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">DELETE</button>
                                                                 <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                                                                 <div class="modal-dialog modal-dialog-centered">
                                                                     <div class="modal-content">

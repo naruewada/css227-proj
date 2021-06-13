@@ -2,32 +2,26 @@
 
 <link rel="stylesheet" href="../stylesheets/slide.css">
 
-<div class="container-fluid" style="background-color: #0c0041;">
-    <div class="row">
-        <div class="col-md col-sm-12" style="overflow: hidden;">
-            <img src="<%= Cinemas.image %>" width="850" height="450">
-        </div>
-        <div class="col-md col-sm-12 pt-5 text-center">
-            <ul style="list-style-type: none; color: white;">
-                <div class="container-fluid" style="height: 220px;">
-                    <li class="mt-3 mb-5"><img src="<%= Cinemas.logo %>" width="350px" height="200px" style="object-fit: contain;"></li>
-                </div>
-                <div class="container-fluid" style="height: 150px;">
-                    <li><h5><%= Cinemas.slogan %></h5></li>
-                </div>
-            </ul>
+<div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="<%= Cinemas.image %>" class="d-block w-100" alt="NMovie">
+        <div class="carousel-caption  d-md-block">
+            <img src="<%= Cinemas.logo %>" width="300px" height="150px" style="object-fit: contain;" >
+            <p class="head-messege" style="text-align:center;color: rgb(252, 207, 61);font-size:1.5em;font-weight:bold;text-shadow:1px 1px 2px white;"><%= Cinemas.slogan %></p>
         </div>
     </div>
-
-    <div class="container-fluid" style="height: 20px; background-color: #0c0041;"></div>
 </div>
+
+
+
+
 
 <!-- Now showing -->
 <!-- Banner -->
-<div class="container-fluid bg-dark px-3 pt-4" style="height: 75px;">
-    <h5 style="color: white; text-transform: uppercase;">
+<div class="container-fluid  px-3 pt-4" style="height: 75px; background-color:rgb(241, 182, 19);">
+    <h5 style="color: black;text-shadow:2px 2px 5px white;font-weight:bold; text-transform: uppercase;">
         &emsp;
-        <span class="dot" style="background-color: rgb(255, 0, 0); margin-bottom: 1px;"></span>
+       
       Now showing
     </h5>
 </div>
@@ -43,7 +37,7 @@
             <% var i = 0; Movies.forEach(function(movie){ %>
                 <div class="col">
                     <a href="/session/<%= Cinemas._id %>/<%= movie._id %>" class="none-decoration">
-                        <div class="card shadow-sm bg-dark" style="width: 14.3rem;">
+                        <div class="card shadow-sm bg-dark" style="width: 16.3rem;">
                         <img src="<%= movie.image %>" class="card-img-top" style="height: 21rem;">
                         <div class="card-body bg-dark">
                             <h5 class="card-title"><span><%= movie.name %></span></h5>

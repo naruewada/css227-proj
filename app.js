@@ -30,7 +30,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(__dirname + 'public'));
 app.use(flash());
 // app.use(express.static( './public'));
-// seedDB();
+seedDB();
 
 
 app.use(require('express-session')({

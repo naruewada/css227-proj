@@ -35,7 +35,8 @@
         <li><a class="dropdown-item " href="/movie">All</a></li>
         <li><a class="dropdown-item " href="/movie/genre-nowshowing/action">Action</a></li>
         <li><a class="dropdown-item " href="/movie/genre-nowshowing/fantasy">Fantasy</a></li>
-        <li><a class="dropdown-item " href="/movie/genre-nowshowing/horror">Horror</a></li>
+        <li><a class="dropdown-item " href="/movie/genre-nowshowing/crime">Crime</a></li>
+        <li><a class="dropdown-item " href="/movie/genre-nowshowing/Thriller">Thriller</a></li>
         <li><a class="dropdown-item " href="/movie/genre-nowshowing/comedy">Comedy</a></li>
         <li><a class="dropdown-item " href="/movie/genre-nowshowing/Adventure">Adventure</a></li>
         <li><a class="dropdown-item " href="#">Genre</a></li>
@@ -54,7 +55,7 @@
             <% var i=1; movie.forEach(function(movie){ %>
               <div class="col">
                 <a href="/movie/<%= movie._id %>" class="none-decoration">
-                  <div class="card shadow-sm bg-dark" style="width: 14.3rem;">
+                  <div class="card shadow-sm bg-dark" style="width: 16.3rem;">
                     <img src="<%= movie.image %>" class="card-img-top" style="height: 21rem;">
                     <div class="card-body bg-dark">
                       <h5 class="card-title"><span>
@@ -122,7 +123,7 @@
           <% var i=10;moviecom.forEach(function(movie){ %>
             <div class="col">
               <a href="/movie/<%= movie._id %>" class="none-decoration">
-                <div class="card shadow-sm bg-dark" style="width: 14.3rem;">
+                <div class="card shadow-sm bg-dark" style="width: 16.3rem;">
                   <img src="<%= movie.image %>" class="card-img-top" style="height: 21rem;">
                   <div class="card-body bg-dark">
                     <h5 class="card-title"><span>

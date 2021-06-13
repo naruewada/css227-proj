@@ -148,3 +148,56 @@ iframe{
 .h3-thea{
     padding-left: 40px;
 }
+
+.hidden{
+    display: none;
+}
+
+.set-button{
+    padding-left: 35px;
+    margin-top: 40px;
+}
+
+.conment-show{
+    width: 90px;
+    height: 40px;
+    border-radius: 4px 4px ;
+    background-color: rgb(250, 250, 100);
+    border: 2px solid rgb(250, 250, 100);
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 2px rgb(199, 197, 197);
+    box-shadow: inset 2px 2px 7px rgb(238, 236, 128);
+}   
+
+.conment-show:focus{
+    width: 90px;
+    height: 40px;
+    border-radius: 4px 4px ;
+    background-color: rgb(250, 250, 100);
+    border: 2px solid rgb(250, 250, 100);
+    color: rgb(0, 0, 0);
+    text-shadow: 1px 1px 2px rgb(199, 197, 197);
+    box-shadow: inset 1px 1px 7px rgb(155, 155, 154);
+}   
+
+.booking{
+    width: 90px;
+    height: 40px;
+    border-radius: 4px 4px ;
+    background-color: rgb(15, 180, 29);
+    border: 2px solid rgb(15, 180, 29);
+    color: white;
+    text-shadow: 1px 1px 7px rgb(149, 241, 149);
+    box-shadow: inset 1px 1px 7px rgb(248, 247, 243);
+} 
+
+.booking:focus{
+    width: 90px;
+    height: 40px;
+    border-radius: 4px 4px ;
+    background-color: rgb(15, 180, 29);
+    border: 2px solid rgb(15, 180, 29);
+    color: white;
+    text-shadow: 1px 1px 2px rgb(51, 50, 50);
+    box-shadow: inset 1px 1px 7px rgb(2, 114, 12);
+} 

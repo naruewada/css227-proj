@@ -63,7 +63,7 @@ router.delete('/:comment_id', middleware.checkCommentOwner, function(req, res){
         if(err){
             res.redirect('back');
         } else{
-            req.flash('success', "Your Movie is created.");
+            req.flash('success', "Your comment is deleted.");
             res.redirect('/movie/'  + req.params.id);
         }
     });

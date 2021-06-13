@@ -66,7 +66,7 @@
     <% if (!currentUser) { %>
     <% } else if( currentUser && currentUser.state === 'admin' || currentUser && currentUser.state === 'cheif'){ %>
     
-      <div class="admin-tool"><a href="/cinemas/new" style="text-decoration: none;"><i class="fa fa-plus"> </i><span class="new">Add new movies</span></a></div>
+      <div class="admin-tool"><a href="/movie/new" style="text-decoration: none;"><i class="fa fa-plus"> </i><span class="new">Add new movies</span></a></div>
     <% } %>
     
     <div id="now-showing">
@@ -78,7 +78,7 @@
           <% var i = 1;movie.forEach(function(movie){  %>
             <div class="col">
               <a href="/movie/<%= movie._id %>" class="none-decoration">
-                <div class="card bg-dark" style="width: 14.3rem;">
+                <div class="card bg-dark" style="width: 16.3rem;">
                   <img src="<%= movie.image %>" class="card-img-top" style="height: 21rem;">
                   <div class="card-body  shadow-sm bg-dark">
                     <h5 class="card-title"><span><%= movie.name %></span></h5>
@@ -92,7 +92,7 @@
                           <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit">edit</a>
                           <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
                             <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
-                            <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
+                            <div class="modal fade " id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
                               <div class="modal-dialog modal-dialog-centered">
                                   <div class="modal-content">
                                       <div class="modal-header">
@@ -140,7 +140,7 @@
               <% var i = 10; moviecom.forEach(function(movie){  %>
             <div class="col">
               <a href="/movie/<%= movie._id %>" class="none-decoration">
-                <div class="card shadow-sm bg-dark" style="width: 14.3rem;">
+                <div class="card shadow-sm bg-dark" style="width: 16.3rem;">
                   <img src="<%= movie.image %>" class="card-img-top" style="height: 21rem;">
                   <div class="card-body bg-dark">
                     <h5 class="card-title"><span><%= movie.name %></span></h5>
@@ -220,9 +220,9 @@
             
 
             <% var i = 1; Ranks.forEach(function(movie){  %>
-              <div class="col col-1">
+              <div class="col col-1" style=" margin-top:75px;">
                 <a href="/movie/<%= movie._id %>" class="none-decoration">
-                  <div class="card shadow-sm bg-dark" style="width: 14.3rem;">
+                  <div class="card shadow-sm bg-dark" style="width: 16.3rem;">
                     <img src="<%= movie.image %>" class="card-img-top" style="height: 21rem;">
                     <div class="card-body bg-dark">
                       <h5 class="card-title"><span><%= movie.name %></span></h5>
@@ -234,7 +234,7 @@
                           <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit">edit</a>
                           <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
                             <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">
-                              DELETE &nbsp;<i class="fa fa-trash"></i>
+                              DELETE 
                             </button>
 
                             <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
@@ -261,7 +261,7 @@
                     </div>
                   </div>
                 </a>
-                <p class="rank"><%= i %></p>
+                <p class="rank" style="height:70%;"><%= i %></p>
                 <!-- แต่ง edit -->
               
               </div>

@@ -153,3 +153,20 @@ body{
 .form-control{
   width: 40%;
 }
+.dec{
+  padding-bottom: 20px;
+  background-image: -webkit-linear-gradient(red, yellow);
+  background-image: -moz-linear-gradient(red, yellow);
+  border-radius: 10px 10px ;
+  width: 60%;
+}
+
+.dec-1{
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background-color:black;
+  border-radius: 10px 10px ;
+  width: 90%;
+  margin: 0 auto;
+  
+}

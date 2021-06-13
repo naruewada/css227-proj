@@ -12,7 +12,7 @@ var data = [
         rating: '7.5',
         actor: 'Chris Pratt, Nick Robinson',
         rate:' PG-13',
-        time:'128 mins',
+        time:'128',
         trailer:'https://www.youtube.com/embed/RFinNxS5KN4',
         genre: 'Action / Adventure',
         type: 'nowshowing'
@@ -24,7 +24,7 @@ var data = [
         rating: '6.0',
         actor: 'Chris Pine, Robin Wright',
         rate:' PG-13',
-        time:'112 mins',
+        time:'112',
         trailer:'https://www.youtube.com/embed/1Q8fG0TtVAY',
         genre: 'Action / Adventure / Fantasy',
         type: 'nowshowing'
@@ -36,7 +36,7 @@ var data = [
         rating: '0',
         actor: 'Milla Jovovich, Michelle Rodriguez',
         rate:' PG-13',
-        time:'140 mins',
+        time:'140 ',
         trailer:'https://www.youtube.com/embed/kEutwdia8n0',
         genre: 'Action/ horror',
         type: 'comingsoon'
@@ -49,7 +49,7 @@ var data = [
         rating: '0',
         actor: 'Nadech Kugimiya, Pimchanok Luevisadpaibul',
         rate:' PG-13',
-        time:'149 mins',
+        time:'149',
         trailer:'https://www.youtube.com/embed/lRifyR1jrHw',
         genre: 'comedy',
         type: 'comingsoon'
@@ -57,36 +57,129 @@ var data = [
     {
         name:'Mortal Kombat', 
         image: 'https://m.media-amazon.com/images/M/MV5BY2ZlNWIxODMtN2YwZi00ZjNmLWIyN2UtZTFkYmZkNDQyNTAyXkEyXkFqcGdeQXVyODkzNTgxMDg@._V1_.jpg',
-        date: '9 MAY 2021',
-        rating: '9.0',
+        date: '9 JUNE 2021',
+        rating: '0.0',
         actor: 'Jessica McNamee, Lewis Tan',
         rate:' PG-13',
-        time:'163 mins',
+        time:'163 ',
         trailer:'https://www.youtube.com/embed/e0fy8aqe4Aw',
         genre: 'Scifi/ Action',
+        type: 'comingsoon'
+    },
+    {
+        name:'Wish Dragon', 
+        image: 'https://www.whats-on-netflix.com/wp-content/uploads/2021/06/animated-adventure-wish-dragon-is-coming-to-netflix-in-july-2021-poster-png-copy.png',
+        date: '10 MAY 2021',
+        rating: '7.2',
+        actor: 'Jimmy Wong, John Wong',
+        rate:' General',
+        time:'98 ',
+        trailer:'https://www.youtube.com/embed/uWIRyU5fuzU',
+        genre: 'Comedy/Adventure ',
         type: 'nowshowing'
-    }                
+    },
+    {
+        name:'The Witches', 
+        image: 'https://s359.kapook.com/rq/450/auto/50/pagebuilder/424246e4-6c9e-4da8-b6c6-d3f83e9bcaef.jpg',
+        date: '19 JUNE 2021',
+        rating: '0.0',
+        actor: 'Anne Hathaway, Octavia Spencer',
+        rate:' PG-13',
+        time:'106 ',
+        trailer:'https://www.youtube.com/embed/9nlhmJF5FNI',
+        genre: 'Comedy/Fantasy',
+        type: 'comingsoon'
+    },
+    {
+        name:'Promising Young Woman', 
+        image: 'https://369movies.com/wp-content/uploads/2021/03/Promising-Young-Woman-2020.jpg',
+        date: '22 APR 2021',
+        rating: '4.0',
+        actor: 'Carey Mulligan, Bo Burnham',
+        rate:' PG-13',
+        time:'163 ',
+        trailer:'https://www.youtube.com/embed/7i5kiFDunk8',
+        genre: 'Comedy/Crime/Drama',
+        type: 'nowshowing'
+    },
+    {
+        name:'Collectors, The', 
+        image: 'https://commercialauthority.com/wp-content/uploads/2021/04/1.jpg',
+        date: '26 APR 2021',
+        rating: '4.4',
+        actor: 'Jo Woo-Jin, Lee Je-Hoon',
+        rate:' All',
+        time:'115 ',
+        trailer:'https://www.youtube.com/embed/0LPzL4MozM4',
+        genre: 'Crime',
+        type: 'nowshowing'
+    },
+    {
+        name:'The Lord of the Rings', 
+        image: 'https://images.fandango.com/ImageRenderer/0/0/redesign/static/img/default_poster.png/0/images/masterrepository/fandango/223969/LOTR_TTT_4K_V_DD_KA_TT_2000x3000_EN.jpg',
+        date: '10 June 2021',
+        rating: '9.1',
+        actor: 'Cate Blanchett, Orlando Bloom',
+        rate:' General',
+        time:'180 ',
+        trailer:'https://www.youtube.com/embed/WGAuIniKeEU',
+        genre: 'Action, Adventure, Drama',
+        type: 'nowshowing'
+    },
+    {
+        name:'Courier, The', 
+        image: 'https://www.i-moviehd.com/wp-content/uploads/2020/01/The-Courier-2019.png',
+        date: '12 April 2021',
+        rating: '5.2',
+        actor: 'Benedict Cumberbatch, Vladimir Chuprikov',
+        rate:' General',
+        time:'115',
+        trailer:'https://www.youtube.com/embed/Qeo8qs9xohM',
+        genre: 'Thriller',
+        type: 'nowshowing'
+    },
+    {
+        name:'Seobok', 
+        image: 'https://cdn.majorcineplex.com/uploads/movie/3092/thumb_3092.jpg',
+        date: '12 APR 2021',
+        rating: '6.0',
+        actor: 'Gong Yoo, Park Bo-Gum',
+        rate:' PG-15',
+        time:'163 mins',
+        trailer:'https://www.youtube.com/embed/5vSr2TPr6w8',
+        genre: ' Action',
+        type: 'nowshowing'
+    }                                                                                                                   
 ];
 
 var cinema = [
     {
-        name: "Cinemania",
+        name: "Silver",
         image: "http://www.engtest.net/UserFiles/Image/25782572575785785757575/cinema-Maroc.jpg",
-        logo: "https://i.pinimg.com/236x/63/fb/15/63fb1537a5772e9ed175172e2b78a659.jpg",
+        logo: "https://cdn.pixabay.com/photo/2018/03/21/13/50/the-letters-of-the-alphabet-3246743_960_720.png",
         branch: 'central',
-        slogan: "Premium cinema that deserve right to you.",
+        slogan: "Exclusive for you.",
         seat: [ [0, 0, 0 ,0] , [0, 0, 0, 0] , [0, 0, 0, 0] , [0, 0, 0, 0] ],
         time: [11,14,17,20],
     },
     {
-        name: "CinemaX",
-        image: "http://www.engtest.net/UserFiles/Image/25782572575785785757575/cinema-Maroc.jpg",
-        logo: "https://i.pinimg.com/236x/63/fb/15/63fb1537a5772e9ed175172e2b78a659.jpg",
+        name: "Blonzer",
+        image: "https://www.michiganradio.org/sites/michigan/files/styles/medium/public/201808/ss_theatre_curtain_flickr.jpg",
+        logo: "http://assets.stickpng.com/images/5f480a49554fc70004db57e1.png",
         branch: 'bangkok',
-        slogan: "The Best Xperience of cinema that you can taste.",
+        slogan: "The Best cinema.",
         seat: [ [0, 0, 0 ,0] , [0, 0, 0, 0] , [0, 0, 0, 0] , [0, 0, 0, 0] ],
         time: [10,13,16,19,22],
     },
+    {
+        name: "Plattinum",
+        image: "https://www.the-bigger-picture.com/wp-content/uploads/2021/01/odeon-bluescreen1-crop.jpeg",
+        logo: "https://freesvg.org/img/GoldTypographyP.png",
+        branch: 'bangkok',
+        slogan: "The Best cinema for you. ",
+        seat: [ [0, 0, 0 ,0] , [0, 0, 0, 0] , [0, 0, 0, 0] , [0, 0, 0, 0] ],
+        time: [10,13,16,19,22]
+    }
 ]
 
 function seedDB(){

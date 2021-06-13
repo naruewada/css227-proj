@@ -3,16 +3,12 @@
 <link rel="stylesheet" href="../stylesheets/booking.css">
 
 <!-- Banner -->
-<div class="container-fluid px-3" style="height: 75px; background-color: rgb(0, 0, 0);">
+<div class="container-fluid px-3" >
     <div class="row">
-        <h5 class="col pt-4" style="color: white; text-transform: uppercase;">
-            &emsp;
-            <span class="dot" style="background-color: rgb(0, 183, 255); margin-bottom: 1px;"></span>
-            Reserve
+        <h5 style="color: white;">
+            <img src="/picture/cinema/popcorn.png" style="width: 7rem; height:9rem">
+            <span style="font-size: 2em;">Booking</span>
         </h5>
-        <div class="col-3 pt-2">
-            <img src="<%= Cinemas.logo %>" width="100px" style="float: right;">
-        </div>
     </div>
 </div>
 <!-- End of Banner -->
@@ -256,7 +252,28 @@
                         <h3 style="color: rgb(245, 182, 11);">Amount Seats: <span id="num-seat"></span></h3>
                         <h3 style="color: white;">Price: <span id="price"></span> Baht</h3>
                         <div style="position: relative; height: 80px;">
-                            <button id="submit" type="submit" class="btn btn-primary btn-warning mb-3">Reserve</button>
+                            
+                            <button type="button" class="btn btn-delete  btn-warning" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                Reserve &nbsp;
+                              </button>
+  
+                              <div class="modal fade" id="deleteModal" data-bs-backdrop="static" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Booking Confirm</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
