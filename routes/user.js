@@ -41,27 +41,6 @@ var express     = require('express'),
         });
     });
     
-    router.post('/admin/grant/:id', middleware.checkAdmin, function (req, res) {
-        User.findByIdAndUpdate(req.params.id,{state: 'admin'},function (err, result) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log("Updated User : ", result);
-                res.redirect('back');
-            }
-        });
-    });
-    
-    router.post('/admin/forfeit/:id', middleware.checkAdmin, function (req, res) {
-        User.findByIdAndUpdate(req.params.id,{state: 'member'},function (err, result) {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log("Updated User : ", result);
-                res.redirect('back');
-            }
-        });
-    });
     
     
     router.post('/admin/delete/:id', middleware.checkAdmin, function (req, res) {
