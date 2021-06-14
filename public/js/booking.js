@@ -1,11 +1,11 @@
-var weekday = new Array(7), month = new Array(12);
-    weekday[0] = "Sun", weekday[1] = "Mon", weekday[2] = "Tues", weekday[3] = "Wed", weekday[4] = "Thurs", weekday[5] = "Fri", weekday[6] = "Sat";
+var week = new Array(7), month = new Array(12);
+    week[0] = "Sun", week[1] = "Mon", week[2] = "Tues", week[3] = "Wed", week[4] = "Thurs", week[5] = "Fri", week[6] = "Sat";
     month[0] = "Jan", month[1] = "Feb",month[2] = "Mar", month[3] = "Apr", month[4] = "May", month[5] = "June", month[6] = "July", month[7] = "Aug", month[8] = "Sept", month[9] = "Oct", month[10] = "Nov", month[11] = "Dec";
 
     var currentTime = new Date();
     var hours = currentTime.getHours(), minutes = currentTime.getMinutes();
     var todayDay = currentTime.getDay(), todayMonth = currentTime.getMonth(), todayDate = currentTime.getDate();
-    var today = weekday[todayDay] + ' ' + todayDate + ' ' + month[todayMonth];
+    var today = week[todayDay] + ' ' + todayDate + ' ' + month[todayMonth];
     var selectDay = document.getElementById("selectDay").value;
 
     if ( today == selectDay ) {
