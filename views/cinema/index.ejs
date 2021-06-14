@@ -4,7 +4,7 @@
 
 <!------------------------------------------------- banner ---------------------------------------------->
 
-                <script src="home.js" defer></script>
+                <script src="/js/home.js" defer></script>
                 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
                 <link rel="preconnect" href="https://fonts.gstatic.com">
                 <link rel="stylesheet" href="stylesheets/cinema.css">
@@ -23,7 +23,7 @@
                 <div class="part-movie">
                     <p class="movie-head"><img src="/picture/cinema/location.png" style="width: 17rem; height:12rem;text-align:center;"></p>
                     <p class="pre-head">
-                        <button id="sub-now" class="showing-movie decoration">Bangkok And Metropolitan Region</button>
+                        <button id="sub-now" class="showing-movie decoration decoration_1">Bangkok And Metropolitan Region</button>
                         <button id="sub-come" class="coming-movie decoration">Central Region</button>
                         <hr class="line line-edit">
                     </p>
@@ -52,7 +52,7 @@
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <% if( currentUser && currentUser.state === 'cheif' || currentUser && currentUser.state === 'admin'){ %>
                                                             <div class="d-flex justify-content-between align-items-center">
-                                                              <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit">EDIT</a>
+                                                              <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit" style="margin-right: 5px;">EDIT</a>
                                                               <form action="/cinemas/<%= cinema._id %>?_method=DELETE" method="POST">
                                                                 <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">DELETE</button>
                                                                 <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
@@ -103,7 +103,7 @@
                                                     <div class="d-flex justify-content-between align-items-center">
                                                         <% if( currentUser && currentUser.state === 'cheif' || currentUser && currentUser.state === 'admin'){ %>
                                                             <div class="d-flex justify-content-between align-items-center">
-                                                            <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit">EDIT</a>
+                                                            <a class="btn btn-warning" href="/cinemas/<%= cinema._id %>/edit" style="margin-right: 5px;">EDIT</a>
                                                             <form action="/cinemas/<%= cinema._id %>?_method=DELETE" method="POST">
                                                                 <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">DELETE</button>
                                                                 <div class="modal fade" id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">

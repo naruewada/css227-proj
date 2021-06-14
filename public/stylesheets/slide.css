@@ -257,7 +257,8 @@ body{
     font-size: 0;
     margin-top: -2px;
     border: 1px solid whitesmoke;
-    margin-left: 390px;
+    margin-left:0 auto;
+    text-align: center;
 }
 .hidden{
     display: none;

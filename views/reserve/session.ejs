@@ -245,32 +245,32 @@
     var selectDay = document.getElementById("selectDay").value;
 
     if ( today == selectDay ) {
-        if ( hours == 11 && minutes > 15 || hours > 10 ){
-            var k = document.getElementsByClassName("11");
+        if ( hours == 10 && minutes > 15 || hours > 10 ){
+            var k = document.getElementsByClassName("10");
             for( var i = 0; i < k.length; i++ ) {
                  k[i].disabled = true;
             }
         }
-        if ( hours >= 15 && minutes > 15 || hours > 11 ){
-            var k = document.getElementsByClassName("15");
+        if ( hours >= 11 && minutes > 15 || hours > 11 ){
+            var k = document.getElementsByClassName("11");
             for ( var i = 0; i < k.length; i++ ) {
                  k[i].disabled = true;
             }
         }
-        if ( hours >= 18 && minutes > 15 || hours > 12 ){
-            var k = document.getElementsByClassName("18");
+        if ( hours >= 12 && minutes > 15 || hours > 12 ){
+            var k = document.getElementsByClassName("12");
             for ( var i = 0; i < k.length; i++ ) {
-                 k[i].disabled = true;
-            }
-        }
-        if ( hours >= 21 && minutes > 15 || hours > 21 ){
-            var k = document.getElementsByClassName("21");
-            for ( var i = 0; i <k.length; i++ ){
                  k[i].disabled = true;
             }
         }
         if ( hours >= 13 && minutes > 15 || hours > 13 ){
             var k = document.getElementsByClassName("13");
+            for ( var i = 0; i <k.length; i++ ){
+                 k[i].disabled = true;
+            }
+        }
+        if ( hours >= 15 && minutes > 15 || hours > 15 ){
+            var k = document.getElementsByClassName("15");
             for ( var i = 0; i < k.length; i++ ){
                  k[i].disabled = true;
             }
@@ -281,20 +281,20 @@
                  k[i].disabled = true;
             }
         }
-        if ( hours >= 10 && minutes > 15 || hours > 10 ){
-            var k = document.getElementsByClassName("10");
-            for ( var i = 0; i < k.length; i++){
-                 k[i].disabled = true;
-            }
-        }
-        if ( hours >= 12 && minutes > 15 || hours > 12 ){
-            var k = document.getElementsByClassName("12");
+        if ( hours >= 18 && minutes > 15 || hours > 18 ){
+            var k = document.getElementsByClassName("18");
             for ( var i = 0; i < k.length; i++){
                  k[i].disabled = true;
             }
         }
         if ( hours >= 20 && minutes > 15 || hours > 20 ){
             var k = document.getElementsByClassName("20");
+            for ( var i = 0; i < k.length; i++){
+                 k[i].disabled = true;
+            }
+        }
+        if ( hours >= 21 && minutes > 15 || hours > 21 ){
+            var k = document.getElementsByClassName("21");
             for ( var i = 0; i < k.length; i++){
                  k[i].disabled = true;
             }
@@ -316,31 +316,31 @@
     function check(checkSelectDay) {
         if ( today == checkSelectDay ) {
             if ( hours >= 10 && minutes > 15 || hours > 10 ){
-                var k = document.getElementsByClassName("11");
+                var k = document.getElementsByClassName("10");
                 for ( var i = 0; i < k.length; i++ ){
                     k[i].disabled = true;
                 }
             }
-            if ( hours >= 15 && minutes > 15 || hours > 15 ){
-                var k = document.getElementsByClassName("15");
+            if ( hours >= 11 && minutes > 15 || hours > 11 ){
+                var k = document.getElementsByClassName("11");
             for ( var i = 0; i < k.length; i++ ) {
                  k[i].disabled = true;
             }
         }
-        if ( hours >= 18 && minutes > 15 || hours > 18 ){
-            var k = document.getElementsByClassName("18");
+        if ( hours >= 12 && minutes > 15 || hours > 12 ){
+            var k = document.getElementsByClassName("12");
             for ( var i = 0; i < k.length; i++ ) {
-                 k[i].disabled = true;
-            }
-        }
-        if ( hours >= 21 && minutes > 15 || hours > 21 ){
-            var k = document.getElementsByClassName("21");
-            for ( var i = 0; i <k.length; i++ ){
                  k[i].disabled = true;
             }
         }
         if ( hours >= 13 && minutes > 15 || hours > 13 ){
             var k = document.getElementsByClassName("13");
+            for ( var i = 0; i <k.length; i++ ){
+                 k[i].disabled = true;
+            }
+        }
+        if ( hours >= 15 && minutes > 15 || hours > 15 ){
+            var k = document.getElementsByClassName("15");
             for ( var i = 0; i < k.length; i++ ){
                  k[i].disabled = true;
             }
@@ -351,26 +351,14 @@
                  k[i].disabled = true;
             }
         }
-        if ( hours >= 10 && minutes > 15 || hours > 10 ){
-            var k = document.getElementsByClassName("10");
+        if ( hours >= 18 && minutes > 15 || hours > 18 ){
+            var k = document.getElementsByClassName("18");
             for ( var i = 0; i < k.length; i++){
                  k[i].disabled = true;
             }
         }
-        if ( hours >= 12 && minutes > 15 || hours > 12 ){
-            var k = document.getElementsByClassName("12");
-            for ( var i = 0; i < k.length; i++){
-                 k[i].disabled = true;
-            }
-        }
-        if ( hours >= 22 && minutes > 15 || hours > 22 ){
-            var k = document.getElementsByClassName("22");
-            for ( var i = 0; i < k.length; i++){
-                 k[i].disabled = true;
-            }
-        }
-        if ( hours >= 19 && minutes > 15 || hours > 19 ){
-            var k = document.getElementsByClassName("19");
+        if ( hours >= 20 && minutes > 15 || hours > 20 ){
+            var k = document.getElementsByClassName("20");
             for ( var i = 0; i < k.length; i++){
                  k[i].disabled = true;
             }
@@ -381,33 +369,25 @@
                  k[i].disabled = true;
             }
         }
+        if ( hours >= 22 && minutes > 15 || hours > 22 ){
+            var k = document.getElementsByClassName("22");
+            for ( var i = 0; i < k.length; i++){
+                 k[i].disabled = true;
+            }
+        }
+        if ( hours >= 23 && minutes > 15 || hours > 23 ){
+            var k = document.getElementsByClassName("23");
+            for ( var i = 0; i < k.length; i++){
+                 k[i].disabled = true;
+            }
+        }
         } else if ( today != checkSelectDay ) {
-            var k = document.getElementsByClassName("11");
+            var k = document.getElementsByClassName("10");
                 for ( var i = 0; i < k.length; i++ ) {
                     k[i].disabled = false;
                 }
                 
-            var k = document.getElementsByClassName("15");
-            for ( var i = 0; i < k.length; i++ ){
-                k[i].disabled = false;
-            }
-            var k = document.getElementsByClassName("18");
-            for ( var i = 0; i < k.length; i++ ){
-                k[i].disabled = false;
-            }
-            var k = document.getElementsByClassName("21");
-            for ( var i = 0; i < k.length; i++ ){
-                k[i].disabled = false;
-            }
-            var k = document.getElementsByClassName("13");
-            for ( var i = 0; i < k.length; i++ ){
-                k[i].disabled = false;
-            }
-            var k = document.getElementsByClassName("16");
-            for ( var i = 0; i < k.length; i++ ){
-                k[i].disabled = false;
-            }
-            var k = document.getElementsByClassName("10");
+            var k = document.getElementsByClassName("11");
             for ( var i = 0; i < k.length; i++ ){
                 k[i].disabled = false;
             }
@@ -415,7 +395,27 @@
             for ( var i = 0; i < k.length; i++ ){
                 k[i].disabled = false;
             }
+            var k = document.getElementsByClassName("13");
+            for ( var i = 0; i < k.length; i++ ){
+                k[i].disabled = false;
+            }
+            var k = document.getElementsByClassName("15");
+            for ( var i = 0; i < k.length; i++ ){
+                k[i].disabled = false;
+            }
+            var k = document.getElementsByClassName("16");
+            for ( var i = 0; i < k.length; i++ ){
+                k[i].disabled = false;
+            }
+            var k = document.getElementsByClassName("18");
+            for ( var i = 0; i < k.length; i++ ){
+                k[i].disabled = false;
+            }
             var k = document.getElementsByClassName("20");
+            for ( var i = 0; i < k.length; i++ ){
+                k[i].disabled = false;
+            }
+            var k = document.getElementsByClassName("21");
             for ( var i = 0; i < k.length; i++ ){
                 k[i].disabled = false;
             }

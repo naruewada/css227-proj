@@ -1,6 +1,6 @@
-<%- include('partials/header.ejs') %>
+<%- include('../partials/header.ejs') %>
 
-<script src="/home.js" defer></script>
+<script src="/js/home.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="../stylesheets/mypage.css">
@@ -25,7 +25,7 @@
     </div>
 
     <div class="alert alert-success mypage-background button-control" role="alert">
-        <button id="sub-now" class="showing-movie decoration">Movie history</button>
+        <button id="sub-now" class="showing-movie decoration decoration_1">My Tickets</button>
         <button id="sub-come" class="coming-movie decoration">My favorite movie</button>
     </div>
    
@@ -33,31 +33,31 @@
     <div id="now-showing">
 
         <% if (currentUser) { %>
-            <% Booking.forEach(function(thisReserve){ %>
+            <% Booking.forEach(function(booking){ %>
                 <div class="album py-5">
                     <div class="container dec">
                         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-2 dec-1" >
                            
                             <div class="col" >
                                 <div class="card shadow-sm bg-dark" style="width: 12rem;">
-                                    <img src="<%= thisReserve.moviesImage %>"
+                                    <img src="<%= booking.moviesImage %>"
                                         class="card-img-top">
                                 </div>
                             </div>
 
                             <div class="col" style="color: white;">
-                                <p class="history-name-movie"><%= thisReserve.moviesName %></p>
-                                <p>Date : <%= thisReserve.date %></p>
-                                <p>Time : <%= thisReserve.time %></p>
-                                <p>Cinema : <%= thisReserve.cinemaName %></p>
-                                <p>Theater : <%= thisReserve.theater %></p>
-                                <p>Seat no. : <%= thisReserve.seats %></p>
+                                <p class="history-name-movie"><%= booking.moviesName %></p>
+                                <p>Date : <%= booking.date %></p>
+                                <p>Time : <%= booking.time %></p>
+                                <p>Cinema : <%= booking.cinemaName %></p>
+                                <p>Theater : <%= booking.theater %></p>
+                                <p>Seat no. : <%= booking.seats %></p>
                             </div>
                            
                     
                         </div>
                     </div>
-                </div>
+                </div><hr>
                 <% }); %>
                 <% } %>
        
@@ -139,4 +139,4 @@
                
 
    
-<%- include('partials/footer.ejs') %>
+<%- include('../partials/footer.ejs') %>

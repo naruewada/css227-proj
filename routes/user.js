@@ -34,7 +34,7 @@ var express     = require('express'),
                     if(err) {
                         console.log(err);
                     } else {
-                        res.render('admin.ejs', { User: allUser, Admin: allAdmin });
+                        res.render('index/admin.ejs', { User: allUser, Admin: allAdmin });
                     }
                 });
             }
@@ -92,7 +92,7 @@ router.get('/:id',middleware.isLoggedIn, function (req, res) {
                         if (err) {
                             console.log(err);
                         } else {
-                            res.render('mypage.ejs', { User: foundUsers, movie: likedMovies, Booking: foundBooking });
+                            res.render('index/mypage.ejs', { User: foundUsers, movie: likedMovies, Booking: foundBooking });
                         }
                     });
                 }

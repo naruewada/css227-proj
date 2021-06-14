@@ -1,5 +1,5 @@
-<%- include('partials/header.ejs') %>
-  <script src="home.js" defer></script>
+<%- include('../partials/header.ejs') %>
+  <script src="/js/home.js" defer></script>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../stylesheets/slide.css">
@@ -88,8 +88,8 @@
                     <% } else if( currentUser && currentUser.state === 'admin' || currentUser && currentUser.state === 'cheif'){ %>
                       
 
-                        <div class="d-flex justify-content-between align-items-center">
-                          <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit">edit</a>
+                        <div class="d-flex justify-content-between align-items-center" style="margin-top: 5px;">
+                          <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit" style="margin-left:92px;">edit</a>
                           <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
                             <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>">Delete</button>
                             <div class="modal fade " id="deleteModal<%= i %>" data-bs-backdrop="static" tabindex="-1">
@@ -148,8 +148,8 @@
                   
                     <% if (!currentUser) { %>
                     <% } else if( currentUser && currentUser.state === 'admin' || currentUser.state === 'cheif'){ %>
-                      <div class="d-flex justify-content-between align-items-center">
-                        <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit">edit</a>
+                      <div class="d-flex justify-content-between align-items-center" style="margin-top: 5px;">
+                        <a class="btn btn-warning" href="/movie/<%= movie._id %>/edit" style="margin-left:92px;">edit</a>
                         <form action="/movie/<%= movie._id %>?_method=DELETE" method="POST">
                           <button type="button" class="btn btn-delete btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<%= i %>"> DELETE &nbsp;</button>
 
@@ -188,10 +188,10 @@
     </div>
 
 
-
+    
     <!-- top 5 movie(rank) -->
     <div id="top-5-movie" class="top-5-movie">
-      <hr class="line-1"><br>
+      
       <p class="box-office">Box Office</p>
 
 
@@ -280,4 +280,4 @@
   </div>
 
 
-<%- include('partials/footer.ejs') %>
+  <%- include('../partials/footer.ejs') %>

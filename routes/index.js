@@ -18,7 +18,7 @@ router.get('/', function(req, res){
                         if(err){
                             console.log(err);
                         } else {
-                            res.render('home.ejs', {movie: allMovies, Ranks: rankMovies, moviecom: allMovies_coming});
+                            res.render('index/home.ejs', {movie: allMovies, Ranks: rankMovies, moviecom: allMovies_coming});
                         }
                     });
                 }
@@ -56,7 +56,7 @@ router.get('/movie', function(req, res){
 
 
 router.get('/register', function(req, res){
-    res.render('register.ejs');
+    res.render('index/register.ejs');
 });
 
 router.post('/register', function(req, res){
@@ -67,7 +67,7 @@ router.post('/register', function(req, res){
     User.register(newUser, req.body.password, function(err, user){
         if(err) {
             req.flash("error", err.message);
-            return res.render('register');
+            return res.render('index/register');
         }
         passport.authenticate('local')(req, res, function(){
             req.flash("success", "Welcome to Nmovie" + user.firstname);
@@ -80,7 +80,7 @@ router.post('/register', function(req, res){
 
 
 router.get('/login', function(req, res){
-    res.render('login.ejs');
+    res.render('index/login.ejs');
 });
 
 router.post('/login', passport.authenticate('local',

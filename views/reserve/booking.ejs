@@ -253,7 +253,7 @@
                         <h3 style="color: white;">Price: <span id="price"></span> Baht</h3>
                         <div style="position: relative; height: 80px;">
                             
-                            <button type="button" class="btn btn-delete  btn-warning" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                            <button id = "submit"type="button" class="btn btn-delete  btn-warning" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                 Reserve &nbsp;
                               </button>
   
@@ -360,7 +360,7 @@
         if ( seat > 0 ) {
             document.getElementById('submit').disabled = false;
         }
-        else if ( seat == 0 ) {
+        else if( seat == 0){
             document.getElementById('submit').disabled = true;
         }
     }

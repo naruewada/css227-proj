@@ -116,13 +116,16 @@ body{
     border: 1px solid whitesmoke;
 }
 .line-1{
-    width: 50%;
+    
     height: 20px;
     font-size: 0;
     margin-top: -2px;
     border: 1px solid whitesmoke;
     margin-left: 390px;
+    margin: 0 auto;
 }
+
+
 .hidden{
     display: none;
 }
@@ -362,4 +365,24 @@ body{
   
   #i_0:checked ~ .buttons > label:after {
     transition-delay: initial;
+  }
+
+.admin-tool{
+    background-color: rgb(9, 9, 88); 
+    color:white; 
+    text-align:center;
+    height:60px;
+    font-size: 1.2em;
+    padding-top: 10px;
+  }
+
+  .fa-plus{
+    color:white; 
+    
+  }
+
+  .new{
+    color:white; 
+    font-family: "kanit";
+    text-decoration: none;
   }

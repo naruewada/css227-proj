@@ -21,7 +21,7 @@ router.get('/', function(req, res){
                 if(err){
                     console.log.apply(err);
                 } else {
-                    res.render('home.ejs', {movie: allMovies, Ranks: rankMovies});
+                    res.render('index/home.ejs', {movie: allMovies, Ranks: rankMovies});
                 }
             });
         }
